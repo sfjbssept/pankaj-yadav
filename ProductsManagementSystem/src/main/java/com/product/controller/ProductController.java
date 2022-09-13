@@ -59,5 +59,10 @@ public class ProductController {
 		}
 		return entity;
 	}
+	
+	@DeleteMapping("deleteProducts")
+	public void deleteAllProducts() {
+		productService.deleteAllProducts();
+	}
 
 }
