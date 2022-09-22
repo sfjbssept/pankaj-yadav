@@ -1,0 +1,1 @@
+curl -X GET http://localhost:8088/get --user "user123:password"
