@@ -1,1 +1,2 @@
 curl -X GET http://localhost:8088/get --user "user123:password"
+curl --location --request POST 'http://localhost:8088/post' --header 'Authorization: Basic YWRtaW4xMjM6cGFzc3dvcmQ=' --header 'Content-Type: application/json' --header 'Cookie: JSESSIONID=A8FECE9E80A2B5C63C3989C8A87393CB' --data-raw '{"name" : "Ross","role" : "Dev"}'
