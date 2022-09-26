@@ -1,6 +1,7 @@
 package com.admin.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,17 @@ public class AdminServiceImpl implements AdminService {
 	public List<Flight> getAllFlightDetails() {
 		List<Flight> flightList= flightRepository.findAll();
 		return flightList;
+	}
+
+	@Override
+	public Optional<Flight> getFLightbyId(Integer id) {
+		Optional<Flight> flight = flightRepository.findById(id);
+		return flight;
+	}
+
+	@Override
+	public void deleteFlight(Integer id) {
+		flightRepository.deleteById(id);
 	}
 
 }
