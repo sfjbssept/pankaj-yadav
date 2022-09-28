@@ -11,7 +11,6 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer PNRnumber;
 	private String userName;
 	private String email;

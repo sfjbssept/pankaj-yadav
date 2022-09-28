@@ -13,7 +13,7 @@ public class Passenger {
 	private Integer passengerId;
 	private String firstName;
 	private String lastName;
-	private Integer gender;
+	private String gender;
 	private Integer age;
 	private String mealOpted;
 	private String seatNumber;
@@ -48,10 +48,10 @@ public class Passenger {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Integer getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(Integer gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public Integer getAge() {

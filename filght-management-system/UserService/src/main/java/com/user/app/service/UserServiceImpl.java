@@ -1,10 +1,7 @@
 package com.user.app.service;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -12,6 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.admin.app.entity.Flight;
+import com.admin.app.repo.IFlightRepository;
+import com.user.app.entity.Passenger;
+import com.user.app.entity.User;
 import com.user.app.repo.UserRepository;
 
 @Service
@@ -19,27 +19,50 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserRepository userRepository;
+	@Autowired(required=false)
+	IFlightRepository flightRepository;
+	@Autowired(required = false)
+	User user;
 
 	@Override
 	public List<Flight> getAllFlightes() {
-		userRepository.findAll();
+		flightRepository.findAll();
 		return null;
 	}
 
 
 	@Override
 	public List<Flight> flightServiceBtweenDestinations(String source, String destination) {
-		List<Flight> flightLists =  userRepository.findFlightBtweenDestinations(source, destination);
+		List<Flight> flightLists =  flightRepository.findFlightBtweenDestinations(source, destination);
 		System.out.println("flightList "+flightLists+" on the basis of source: "+source+" destination: "+destination);
 		return flightLists;
 	}
 
 
 	@Override
-	public Flight findFlight(Integer flightId) {
-		userRepository.findById(flightId);
-		return null;
+	public User bookFlight(Integer flightNumber, List<Passenger> passengerList,String userName, Integer seatCount, String email) {
+		Optional<Flight> flightOp = flightRepository.findById(flightNumber);
+		Flight flightResult = flightOp.get();
+		Integer flightNo = flightResult.getFlightNumber();
+		Double randomValue = Double.valueOf(Math.random());
+		Integer flightPNR = flightNo+Integer.valueOf(randomValue.intValue());
+		
+		User user = new User();
+		user.setUserName(userName);
+		user.setSeatCount(seatCount);
+		user.setEmail(email);
+		user.setPNRnumber(flightPNR);
+		user.setTicketStatus("CONFIRM");
+		userRepository.save(user);
+		return user;
 	}
+
+
+//	@Override
+//	public List<Passenger> getDetailsAgainstPNRnumber(Integer pnrNo) {
+//		flightRepository.findPNRdetail(pnrNo);
+//		return null;
+//	}
 
 
 	
