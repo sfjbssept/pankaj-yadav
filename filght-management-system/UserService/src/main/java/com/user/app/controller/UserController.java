@@ -42,16 +42,16 @@ public class UserController {
 //		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
 //	}
 	
-	@GetMapping("/api/v1.0/flight/search")
-	public ResponseEntity<List<Flight>> searchFlight(@RequestParam Map<String,String> allParams){
-		List<Flight> responseFlightList = null;
-		System.out.println("allParams: "+allParams);
-		if(allParams.containsKey("source") && allParams.containsKey("destination")) {
-			responseFlightList = userService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
-			System.out.println("Source is: "+allParams.get("source")+" \n destination is "+allParams.get("destination"));
-		}
-		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
-	}
+//	@GetMapping("/api/v1.0/flight/search")
+//	public ResponseEntity<List<Flight>> searchFlight(@RequestParam Map<String,String> allParams){
+//		List<Flight> responseFlightList = null;
+//		System.out.println("allParams: "+allParams);
+//		if(allParams.containsKey("source") && allParams.containsKey("destination")) {
+//			responseFlightList = userService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
+//			System.out.println("Source is: "+allParams.get("source")+" \n destination is "+allParams.get("destination"));
+//		}
+//		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
+//	}
 	
 	@PostMapping("/api/v1.0/flight/booking/{flightNumber}")
 	public ResponseEntity<String> bookFlight(@PathVariable Integer flightNumber,@RequestBody List<Passenger> passangerDetails,@RequestParam Map<String,String> userDetails){
