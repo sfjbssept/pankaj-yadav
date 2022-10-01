@@ -19,33 +19,30 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserRepository userRepository;
-	@Autowired(required=false)
-	IFlightRepository flightRepository;
-	@Autowired(required = false)
-	User user;
+	
+//	@Autowired(required = false)
+//	User user;
+
+//	@Override
+//	public List<Flight> getAllFlightes() {
+//		flightRepository.findAll();
+//		return null;
+//	}
+//
+//
+//	@Override
+//	public List<Flight> flightServiceBtweenDestinations(String source, String destination) {
+//		List<Flight> flightLists =  flightRepository.findFlightBtweenDestinations(source, destination);
+//		System.out.println("flightList "+flightLists+" on the basis of source: "+source+" destination: "+destination);
+//		return flightLists;
+//	}
+
 
 	@Override
-	public List<Flight> getAllFlightes() {
-		flightRepository.findAll();
-		return null;
-	}
-
-
-	@Override
-	public List<Flight> flightServiceBtweenDestinations(String source, String destination) {
-		List<Flight> flightLists =  flightRepository.findFlightBtweenDestinations(source, destination);
-		System.out.println("flightList "+flightLists+" on the basis of source: "+source+" destination: "+destination);
-		return flightLists;
-	}
-
-
-	@Override
-	public User bookFlight(Integer flightNumber, List<Passenger> passengerList,String userName, Integer seatCount, String email) {
-		Optional<Flight> flightOp = flightRepository.findById(flightNumber);
-		Flight flightResult = flightOp.get();
-		Integer flightNo = flightResult.getFlightNumber();
-		Double randomValue = Double.valueOf(Math.random());
-		Integer flightPNR = flightNo+Integer.valueOf(randomValue.intValue());
+	public User bookFlight(Integer flightPNR, String userName, Integer seatCount, String email) {
+//		Optional<Flight> flightOp = flightRepository.findById(flightNumber);
+//		Flight flightResult = flightOp.get();
+//		Integer flightNo = flightResult.getFlightNumber();
 		
 		User user = new User();
 		user.setUserName(userName);

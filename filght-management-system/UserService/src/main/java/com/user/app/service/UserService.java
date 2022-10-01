@@ -13,10 +13,10 @@ import com.user.app.entity.User;
 
 public interface UserService {
 	
-	List<Flight> getAllFlightes();
+//	List<Flight> getAllFlightes();
 //	List<Flight> getAllFlightesByKey(Object obj);
 //	List<Flight> getAllFlightesByKey(Map<String, String> obj);
-	List<Flight> flightServiceBtweenDestinations(String source, String destination);
-	User bookFlight(Integer flightNo, List<Passenger> passengerList,String userName, Integer seatCount, String email);
+//	List<Flight> flightServiceBtweenDestinations(String source, String destination);
+	User bookFlight(Integer flightPNR, String userName, Integer seatCount, String email);
 //	List<Passenger> getDetailsAgainstPNRnumber(Integer pnrNo);
 }

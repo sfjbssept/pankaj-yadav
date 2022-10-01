@@ -14,5 +14,9 @@ public interface AdminService {
 	Optional<Flight> getFLightbyId(Integer id);
 	
 	void deleteFlight(Integer id);
+	
+	List<Flight> flightServiceBtweenDestinations(String source, String destination);
+
+	//Boolean bookFlight(Integer flightNumber, String email, Integer seatCount, String email2);
 
 }

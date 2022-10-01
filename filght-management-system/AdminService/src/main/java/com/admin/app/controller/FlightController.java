@@ -56,11 +56,23 @@ public class FlightController {
 		List<Flight> responseFlightList = null;
 		System.out.println("allParams: "+allParams);
 		if(allParams.containsKey("source") && allParams.containsKey("destination")) {
-			responseFlightList = userService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
+			responseFlightList = adminService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
 			System.out.println("Source is: "+allParams.get("source")+" \n destination is "+allParams.get("destination"));
 		}
 		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
 	}
+	
+//	@PostMapping("/api/v1.0/flight/booking/{flightNumber}")
+//	public ResponseEntity<Boolean> bookFlight(@PathVariable Integer flightNumber, @RequestParam Map<String,String> userDetails){
+//		String userName = userDetails.get("userName");
+//		Integer seatCount = Integer.parseInt(userDetails.get("seatCount"));
+//		String email = userDetails.get("email");
+//		System.out.println("flightNumber:  "+flightNumber+"userName: "+userName+" seatCount: "+seatCount);
+//
+//		Boolean flightBookflag =  adminService.bookFlight(flightNumber, email, seatCount, email);
+//		return new ResponseEntity<Boolean>(flightBookflag,HttpStatus.OK);
+//	}
+	
 	
 
 }

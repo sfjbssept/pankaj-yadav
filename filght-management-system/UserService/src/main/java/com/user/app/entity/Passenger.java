@@ -17,7 +17,14 @@ public class Passenger {
 	private Integer age;
 	private String mealOpted;
 	private String seatNumber;
+	private Integer PNRnumber;
 	
+	public Integer getPNRnumber() {
+		return PNRnumber;
+	}
+	public void setPNRnumber(Integer pNRnumber) {
+		PNRnumber = pNRnumber;
+	}
 	public String getMealOpted() {
 		return mealOpted;
 	}

@@ -37,5 +37,18 @@ public class AdminServiceImpl implements AdminService {
 	public void deleteFlight(Integer id) {
 		flightRepository.deleteById(id);
 	}
+	
+	@Override
+	public List<Flight> flightServiceBtweenDestinations(String source, String destination) {
+		List<Flight> flightLists =  flightRepository.findFlightBtweenDestinations(source, destination);
+		System.out.println("flightList "+flightLists+" on the basis of source: "+source+" destination: "+destination);
+		return flightLists;
+	}
+
+//	@Override
+//	public Boolean bookFlight(Integer flightNumber, String email, Integer seatCount, String email2) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
 
 }

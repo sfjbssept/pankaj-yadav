@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.admin.app.entity.Flight;
-import com.user.app.entity.ListPassenger;
 import com.user.app.entity.Passenger;
 import com.user.app.entity.User;
+import com.user.app.service.PassangerService;
+import com.user.app.service.TicketService;
 import com.user.app.service.UserService;
 
 @RestController
@@ -29,46 +29,63 @@ public class UserController {
 	@Autowired
 	public UserService userService;
 	
-//	public ResponseEntity<List<Flight>> searchFlight(@RequestParam Map<String,String> allParams){
-//		List<Flight> responseFlightList = null;
-//		//userService.
-//		Set<Entry<String,String>> paramSet = allParams.entrySet();
-//		Iterator<Entry<String, String>> itr = paramSet.iterator();
-//		while(itr.hasNext()) {
-//			Entry<String, String> paramEntry = itr.next();
-////			if(paramEntry.getKey().equals(paramEntry))
-//			responseFlightList = userService.getAllFlightesByKey(paramEntry.getValue());
-//			}
-//		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
-//	}
+	@Autowired
+	public PassangerService passangerService;
 	
-//	@GetMapping("/api/v1.0/flight/search")
-//	public ResponseEntity<List<Flight>> searchFlight(@RequestParam Map<String,String> allParams){
-//		List<Flight> responseFlightList = null;
-//		System.out.println("allParams: "+allParams);
-//		if(allParams.containsKey("source") && allParams.containsKey("destination")) {
-//			responseFlightList = userService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
-//			System.out.println("Source is: "+allParams.get("source")+" \n destination is "+allParams.get("destination"));
-//		}
-//		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
-//	}
+	@Autowired
+	TicketService ticketService;
 	
-	@PostMapping("/api/v1.0/flight/booking/{flightNumber}")
-	public ResponseEntity<String> bookFlight(@PathVariable Integer flightNumber,@RequestBody List<Passenger> passangerDetails,@RequestParam Map<String,String> userDetails){
+	/*
+	 * public ResponseEntity<List<Flight>> searchFlight(@RequestParam
+	 * Map<String,String> allParams){ List<Flight> responseFlightList = null;
+	 * //userService. Set<Entry<String,String>> paramSet = allParams.entrySet();
+	 * Iterator<Entry<String, String>> itr = paramSet.iterator();
+	 * while(itr.hasNext()) { Entry<String, String> paramEntry = itr.next(); //
+	 * if(paramEntry.getKey().equals(paramEntry)) responseFlightList =
+	 * userService.getAllFlightesByKey(paramEntry.getValue()); } return new
+	 * ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK); }
+	 * 
+	 * @GetMapping("/api/v1.0/flight/search") public ResponseEntity<List<Flight>>
+	 * searchFlight(@RequestParam Map<String,String> allParams){ List<Flight>
+	 * responseFlightList = null; System.out.println("allParams: "+allParams);
+	 * if(allParams.containsKey("source") && allParams.containsKey("destination")) {
+	 * responseFlightList =
+	 * userService.flightServiceBtweenDestinations(allParams.get("source"),
+	 * allParams.get("destination"));
+	 * System.out.println("Source is: "+allParams.get("source")
+	 * +" \n destination is "+allParams.get("destination")); } return new
+	 * ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK); }
+	 */
+	
+	@PostMapping("/api/v1.0/flight/booking")
+	public ResponseEntity<User> bookFlight(@RequestBody List<Passenger> passangerDetails,@RequestParam Map<String,String> userDetails){
 		String userName = userDetails.get("userName");
 		Integer seatCount = Integer.parseInt(userDetails.get("seatCount"));
 		String email = userDetails.get("email");
-		System.out.println("flightNumber:  "+flightNumber+"  passangerDetails:  "+passangerDetails +"userName: "+userName+" seatCount: "+seatCount);
-//		return null;
-		User user =  userService.bookFlight(flightNumber, passangerDetails, email, seatCount, email);
-		String responseMsg = user.getSeatCount()+"Ticket has been "+user.getTicketStatus()+" with PNR: "+user.getPNRnumber()+" for the user"+user.getUserName();
-//		return ResponseEntity.of(searchedFlight);
-		return new ResponseEntity<String>(responseMsg,HttpStatus.OK);
+		System.out.println("IN USER CONTROLLER:--->  passangerDetails:  "+passangerDetails +" userName: "+userName+" seatCount: "+seatCount);
+		
+		Integer flightPNR = Integer.valueOf((int) (Math.random()*100000000));
+		System.out.println("flightPNR:  "+flightPNR);
+
+		User user =  userService.bookFlight(flightPNR, email, seatCount, email);
+		passangerService.addPassanger(flightPNR,passangerDetails);
+		for(Passenger passenger : passangerDetails) {
+			String seatNumber = passenger.getSeatNumber();
+			ticketService.confirmTicketByPNR(flightPNR, seatNumber);
+			//start date and end date yet to be added in confirmTicketByPNR to create ticket object.
+			//(later we will fetch this ticket with PNR info)
+		}
+		return new ResponseEntity<User>(user,HttpStatus.OK);
+	}
+	
+	@GetMapping("/api/v1.0/passangers")
+	public ResponseEntity<List<Passenger>> searchPassanger() {
+		List<Passenger> passangerList = passangerService.getPassangers();
+		return new ResponseEntity<List<Passenger>>(passangerList, HttpStatus.OK);
 	}
 	
 //	@GetMapping("/api/v1.0/flight/ticket/{pnr}")
 //	public ResponseEntity<List<Passenger>> getPNRdetails(@PathVariable Integer pnrNo){
-//		List<Passenger> passangerList = null;
 //		userService.getDetailsAgainstPNRnumber(pnrNo);
 //		return new ResponseEntity<List<Passenger>>(responseFlightList,HttpStatus.OK);
 //	}
