@@ -1,5 +1,9 @@
 package com.user.app.service;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +17,19 @@ public class TicketServiceImpl implements TicketService{
 	TicketRepository ticketRepository;
 
 	@Override
-	public Ticket getTicketDetailByPNR(Integer pnr) {
-		ticketRepository.findById(pnr);
-		return null;
+	public Optional<List<Ticket>> getTicketDetailByPNR(Integer pnr) {
+		Optional<List<Ticket>> ticket = ticketRepository.findById(pnr);
+		return ticket;
 	}
 
 	@Override
-	public void confirmTicketByPNR(Integer flightPNR, String seatNumber) {
-		// TODO Auto-generated method stub
-		
+	public void confirmTicketByPNR(Integer flightPNR, String seatNumber, Date startDate, Date endDate) {
+		Ticket ticket = new Ticket();
+		ticket.setPNRnumber(flightPNR);
+		ticket.setSeatNumber(seatNumber);
+		ticket.setStartDateTime(startDate);
+		ticket.setEndDateTime(endDate);
+		ticketRepository.save(ticket);
 	}
 
 }

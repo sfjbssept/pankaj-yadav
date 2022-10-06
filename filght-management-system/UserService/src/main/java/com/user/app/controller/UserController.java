@@ -1,5 +1,6 @@
 package com.user.app.controller;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +72,9 @@ public class UserController {
 		passangerService.addPassanger(flightPNR,passangerDetails);
 		for(Passenger passenger : passangerDetails) {
 			String seatNumber = passenger.getSeatNumber();
-			ticketService.confirmTicketByPNR(flightPNR, seatNumber);
+			Date startDate = passenger.getStartDateTime();
+			Date endDate = passenger.getEndDateTime();
+			ticketService.confirmTicketByPNR(flightPNR, seatNumber, startDate, endDate);
 			//start date and end date yet to be added in confirmTicketByPNR to create ticket object.
 			//(later we will fetch this ticket with PNR info)
 		}
@@ -84,10 +87,10 @@ public class UserController {
 		return new ResponseEntity<List<Passenger>>(passangerList, HttpStatus.OK);
 	}
 	
-//	@GetMapping("/api/v1.0/flight/ticket/{pnr}")
-//	public ResponseEntity<List<Passenger>> getPNRdetails(@PathVariable Integer pnrNo){
-//		userService.getDetailsAgainstPNRnumber(pnrNo);
-//		return new ResponseEntity<List<Passenger>>(responseFlightList,HttpStatus.OK);
-//	}
+	@GetMapping("/api/v1.0/flight/ticket/{pnr}")
+	public ResponseEntity<List<Passenger>> getPNRdetails(@PathVariable Integer pnrNo){
+		userService.getTicketDetailByPNR(pnrNo);
+		return new ResponseEntity<List<Passenger>>(responseFlightList,HttpStatus.OK);
+	}
 	
 }

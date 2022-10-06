@@ -1,4 +1,4 @@
-package com.admin.app;
+package com.kafka.consumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -14,7 +14,7 @@ public class KafkaPublishController {
 	@Autowired
 	public KafkaTemplate<String, Object> kafkaTemplate;
 	
-	private String topic = "spring-kafka1";
+	private String topic = "spring-kafka-1";
 	
 	@GetMapping("/publish/{name}")
 	public String publishMessage(@PathVariable String name) {

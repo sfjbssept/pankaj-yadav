@@ -55,16 +55,12 @@ public class UserServiceImpl implements UserService{
 	}
 
 
-//	@Override
-//	public List<Passenger> getDetailsAgainstPNRnumber(Integer pnrNo) {
-//		flightRepository.findPNRdetail(pnrNo);
-//		return null;
-//	}
+	@Override
+	public List<Passenger> getDetailsAgainstPNRnumber(Integer pnrNo) {
+		userRepository.findPNRdetail(pnrNo);
+		return null;
+	}
 
-
-	
-
-	
 
 //	@Override
 //	public List<Flight> getAllFlightesByKey(Map<String,String> obj) {

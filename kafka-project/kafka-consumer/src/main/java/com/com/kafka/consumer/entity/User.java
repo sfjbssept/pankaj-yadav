@@ -1,4 +1,4 @@
-package com.admin.app.entity;
+package com.com.kafka.consumer.entity;
 
 public class User {
 

@@ -21,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.admin.app.entity.Flight;
 import com.user.app.entity.Passenger;
+import com.user.app.entity.Ticket;
 import com.user.app.entity.User;
 
 @RestController
@@ -123,17 +124,25 @@ public class FlightAppGatewayController {
 			System.out.println("Response received as : "+response.getBody());
 			User user = response.getBody();
 			
+//			//add ticket details
+//			ResponseEntity<User> bookedTicketDetail = restTemplate.exchange("http://flight-user-service/api/v1.0/flight/ticket/{pnr}",
+//					HttpMethod.POST,request,new ParameterizedTypeReference<User>() {},userName,seatCount,email);
 			
-			//add ticket details
-			ResponseEntity<User> bookedTicketDetail = restTemplate.exchange("http://flight-user-service/api/v1.0/flight/ticket/{pnr}",
-					HttpMethod.POST,request,new ParameterizedTypeReference<User>() {},userName,seatCount,email);
-			
-			String responseMsg = user.getSeatCount()+"Ticket has been "+user.getTicketStatus()+" with PNR: "+user.getPNRnumber()+" for the user"+user.getUserName();
+			String responseMsg = user.getSeatCount()+" Ticket has been "+user.getTicketStatus()+" with PNR: "+user.getPNRnumber()+" for the user: "+user.getUserName();
 			
 			return new ResponseEntity<String>(responseMsg, HttpStatus.CREATED);
 		}else {
 			return new ResponseEntity<String>("Flight does not exists",HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
+	
+	@GetMapping("/flight/ticket/{pnr}")
+	public ResponseEntity<Ticket> pnrDetail(@PathVariable Integer pnr) {
+		ResponseEntity<Ticket> bookedTicketDetail = restTemplate.exchange(
+				"http://flight-user-service/api/v1.0/flight/ticket/{pnr}", HttpMethod.POST, null,
+				new ParameterizedTypeReference<Ticket>() {}, pnr);
+		return bookedTicketDetail;
+	}
+	
 }

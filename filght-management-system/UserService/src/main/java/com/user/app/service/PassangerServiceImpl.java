@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,28 @@ public class PassangerServiceImpl implements PassangerService{
 		List<Passenger> passangers = passangerRepository.findAll();
 		return passangers;
 	}
+
+	@Override
+	public Optional<Passenger> getPassengerById(Integer id) {
+		Optional<Passenger> passenger= passangerRepository.findById(id);
+		return passenger;
+	}
+
+	@Override
+	public void deletePassenger(Integer pasId) {
+		passangerRepository.deleteById(pasId);
+	}
+
+	@Override
+	public Passenger addPassenger(Passenger passenger) {
+		Passenger addedPassenger = passangerRepository.save(passenger);
+		return addedPassenger;
+	}
+
+//	@Override
+//	public Optional<Passenger> updatePassenger(Passenger passenger) {
+//		passangerRepository.up
+//		return Optional.empty();
+//	}
 
 }

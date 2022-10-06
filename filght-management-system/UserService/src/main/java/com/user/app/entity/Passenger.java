@@ -1,5 +1,7 @@
 package com.user.app.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +20,21 @@ public class Passenger {
 	private String mealOpted;
 	private String seatNumber;
 	private Integer PNRnumber;
+	private Date startDateTime;
+	private Date endDateTime;
 	
+	public Date getStartDateTime() {
+		return startDateTime;
+	}
+	public void setStartDateTime(Date startDateTime) {
+		this.startDateTime = startDateTime;
+	}
+	public Date getEndDateTime() {
+		return endDateTime;
+	}
+	public void setEndDateTime(Date endDateTime) {
+		this.endDateTime = endDateTime;
+	}
 	public Integer getPNRnumber() {
 		return PNRnumber;
 	}
