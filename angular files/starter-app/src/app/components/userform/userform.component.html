@@ -1,0 +1,14 @@
+<p>userform works!</p>
+<h1>{{title}}</h1>
+<p>{{desc}}</p>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">username</span>
+  <input type="text" class="form-control" [(ngModel)]="username" placeholder="give your name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">age</span>
+  <input type="text" class="form-control" [(ngModel)]="age" placeholder="give your age" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"/>
+</div>
+<button type="button" class="btn btn-primary btn-lg" (click)="save()">Save</button>
