@@ -1,10 +1,12 @@
 package com.user.app.repo;
 //
 //import java.util.List;
-//import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Query;
 //import com.admin.app.entity.Flight;
 //import com.user.app.entity.Passenger;
 //
+
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,6 +15,9 @@ import com.user.app.entity.Ticket;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
+	
+	@Query(value = "SELECT * FROM ticket where pnrnumber=?;",nativeQuery = true)
+	List<Ticket> findBypnr(Integer pnrNo);
 	
 }
 //

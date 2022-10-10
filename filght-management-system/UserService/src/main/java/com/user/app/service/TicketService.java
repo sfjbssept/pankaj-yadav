@@ -8,7 +8,7 @@ import com.user.app.entity.Ticket;
 
 public interface TicketService {
 
-	Optional<List<Ticket>> getTicketDetailByPNR(Integer pnr);
+	List<Ticket> getTicketDetailByPNR(Integer pnr);
 
 	void confirmTicketByPNR(Integer flightPNR, String seatNumber, Date startDate, Date endDate);
 

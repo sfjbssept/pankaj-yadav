@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.user.app.entity.Passenger;
+import com.user.app.entity.Ticket;
 import com.user.app.entity.User;
 import com.user.app.service.PassangerService;
 import com.user.app.service.TicketService;
@@ -88,9 +89,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/api/v1.0/flight/ticket/{pnr}")
-	public ResponseEntity<List<Passenger>> getPNRdetails(@PathVariable Integer pnrNo){
-		userService.getTicketDetailByPNR(pnrNo);
-		return new ResponseEntity<List<Passenger>>(responseFlightList,HttpStatus.OK);
+	public ResponseEntity<List<Ticket>> getPNRdetails(@PathVariable Integer pnr){
+		List<Ticket> tickets= ticketService.getTicketDetailByPNR(pnr);
+		return new ResponseEntity<List<Ticket>>(tickets,HttpStatus.OK);
 	}
 	
 }

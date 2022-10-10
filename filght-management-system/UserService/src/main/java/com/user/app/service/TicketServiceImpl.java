@@ -17,9 +17,9 @@ public class TicketServiceImpl implements TicketService{
 	TicketRepository ticketRepository;
 
 	@Override
-	public Optional<List<Ticket>> getTicketDetailByPNR(Integer pnr) {
-		Optional<List<Ticket>> ticket = ticketRepository.findById(pnr);
-		return ticket;
+	public List<Ticket> getTicketDetailByPNR(Integer pnr) {
+		List<Ticket> ticketList = ticketRepository.findBypnr(pnr);
+		return ticketList;
 	}
 
 	@Override
