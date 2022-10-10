@@ -16,10 +16,12 @@ import com.user.app.entity.Ticket;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 	
-	@Query(value = "SELECT * FROM ticket where pnrnumber=?;",nativeQuery = true)
+	@Query(value = "SELECT * FROM ticket JOIN Passenger ON Passenger.pnrnumber=ticket.pnrnumber where ticket.pnrnumber=?;",nativeQuery = true)
 	List<Ticket> findBypnr(Integer pnrNo);
 	
 }
+
+
 //
 ////	@Query(value = "SELECT * FROM flight WHERE (flight_source = ?1 AND flight_destination = ?2);",nativeQuery = true)
 ////	List<Flight> findFlightBtweenDestinations(String source, String destination);
