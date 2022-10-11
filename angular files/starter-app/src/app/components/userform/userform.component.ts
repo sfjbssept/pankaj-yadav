@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Student from 'src/app/entity/Student';
 
 @Component({
   selector: 'app-userform',
@@ -7,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserformComponent implements OnInit {
 
-  username:String = "";
-  age:number = 0;
-  title = 'Hello-world';
-  desc:String = "AngularJS extends HTML with new attributes,AngularJS is perfect for Single Page Applications (SPAs).AngularJS is easy to learn."
+  student:Student = new Student();
+  // username:String = "";
+  // age:number = 0;
+  // title = 'Student Registration';
+  // desc:String = "AngularJS extends HTML with new attributes,AngularJS is perfect for Single Page Applications (SPAs).AngularJS is easy to learn."
 
-  save(){
-    console.log("the user's name is "+this.username+" whose age is: "+this.age);
-  }
+  // save(){
+  //   console.log("the user's name is "+this.username+" whose age is: "+this.age);
+  // }
 
   constructor() { }
 
