@@ -10,7 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { RegisteredstudentComponent } from './components/registeredstudent/registeredstudent.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http'
     HomeComponent,
     RegisterComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    RegisteredstudentComponent
   ],
   imports: [
     BrowserModule,
