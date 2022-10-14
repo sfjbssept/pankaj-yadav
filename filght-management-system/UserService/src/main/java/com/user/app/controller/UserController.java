@@ -68,14 +68,16 @@ public class UserController {
 		
 		Integer flightPNR = Integer.valueOf((int) (Math.random()*100000000));
 		System.out.println("flightPNR:  "+flightPNR);
+		
+		String ticketStaus = "CONFIRM";
 
-		User user =  userService.bookFlight(flightPNR, email, seatCount, email);
-		passangerService.addPassanger(flightPNR,passangerDetails);
+		User user =  userService.bookFlight(flightPNR, ticketStaus, email, seatCount, email);
+		passangerService.addPassanger(flightPNR, ticketStaus, passangerDetails);
 		for(Passenger passenger : passangerDetails) {
 			String seatNumber = passenger.getSeatNumber();
 			Date startDate = passenger.getStartDateTime();
 			Date endDate = passenger.getEndDateTime();
-			ticketService.confirmTicketByPNR(flightPNR, seatNumber, startDate, endDate);
+			ticketService.confirmTicketByPNR(flightPNR, ticketStaus, seatNumber, startDate, endDate);
 			//start date and end date yet to be added in confirmTicketByPNR to create ticket object.
 			//(later we will fetch this ticket with PNR info)
 		}

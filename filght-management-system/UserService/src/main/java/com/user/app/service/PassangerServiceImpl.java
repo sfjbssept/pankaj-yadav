@@ -18,13 +18,14 @@ public class PassangerServiceImpl implements PassangerService{
 	PassangerRepository passangerRepository;
 
 	@Override
-	public void addPassanger(Integer pnrNo, List<Passenger> passangerDetails) {
+	public void addPassanger(Integer pnrNo,String ticketStaus, List<Passenger> passangerDetails) {
 		List<Passenger> passangerList = new ArrayList<>();
 		
 		ListIterator<Passenger> iterator = passangerDetails.listIterator();
 		while (iterator.hasNext()) {
 			Passenger p = iterator.next();
 			p.setPNRnumber(pnrNo);
+			p.setTicketStatus(ticketStaus);
 			passangerList.add(p);
 		}
 		passangerRepository.saveAll(passangerList);

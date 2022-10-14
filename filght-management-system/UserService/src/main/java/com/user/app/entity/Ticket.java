@@ -18,6 +18,14 @@ public class Ticket {
 	private Date endDateTime;
 	private Integer PNRnumber;
 	private String seatNumber;
+	private String ticketStatus;
+	
+	public String getTicketStatus() {
+		return ticketStatus;
+	}
+	public void setTicketStatus(String ticketStatus) {
+		this.ticketStatus = ticketStatus;
+	}
 	public Integer getTicketCode() {
 		return TicketCode;
 	}

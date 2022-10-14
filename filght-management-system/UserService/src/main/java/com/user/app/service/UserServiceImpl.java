@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService{
 
 
 	@Override
-	public User bookFlight(Integer flightPNR, String userName, Integer seatCount, String email) {
+	public User bookFlight(Integer flightPNR, String tktStatus, String userName, Integer seatCount, String email) {
 //		Optional<Flight> flightOp = flightRepository.findById(flightNumber);
 //		Flight flightResult = flightOp.get();
 //		Integer flightNo = flightResult.getFlightNumber();
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService{
 		user.setSeatCount(seatCount);
 		user.setEmail(email);
 		user.setPNRnumber(flightPNR);
-		user.setTicketStatus("CONFIRM");
+		user.setTicketStatus(tktStatus);
 		userRepository.save(user);
 		return user;
 	}

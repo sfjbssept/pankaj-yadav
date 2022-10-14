@@ -19,6 +19,9 @@ public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 	@Query(value = "SELECT * FROM ticket JOIN Passenger ON Passenger.pnrnumber=ticket.pnrnumber where ticket.pnrnumber=?;",nativeQuery = true)
 	List<Ticket> findBypnr(Integer pnrNo);
 	
+	@Query(value = "select ticket_code from ticket where pnrnumber=?;",nativeQuery = true)
+	List<Integer> findidBypnr(Integer pnrNo);
+	
 }
 
 

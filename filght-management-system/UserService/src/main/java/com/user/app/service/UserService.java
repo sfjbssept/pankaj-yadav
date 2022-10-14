@@ -17,6 +17,6 @@ public interface UserService {
 //	List<Flight> getAllFlightesByKey(Object obj);
 //	List<Flight> getAllFlightesByKey(Map<String, String> obj);
 //	List<Flight> flightServiceBtweenDestinations(String source, String destination);
-	User bookFlight(Integer flightPNR, String userName, Integer seatCount, String email);
+	User bookFlight(Integer flightPNR,String tktStatus, String userName, Integer seatCount, String email);
 //	List<Passenger> getDetailsAgainstPNRnumber(Integer pnrNo);
 }

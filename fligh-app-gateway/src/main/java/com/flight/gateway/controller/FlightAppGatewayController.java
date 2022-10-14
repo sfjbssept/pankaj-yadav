@@ -11,6 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -138,11 +139,20 @@ public class FlightAppGatewayController {
 	
 	
 	@GetMapping("/flight/ticket/{pnr}")
-	public ResponseEntity<Ticket> pnrDetail(@PathVariable Integer pnr) {
-		ResponseEntity<Ticket> bookedTicketDetail = restTemplate.exchange(
-				"http://flight-user-service/api/v1.0/flight/ticket/{pnr}", HttpMethod.POST, null,
-				new ParameterizedTypeReference<Ticket>() {}, pnr);
+	public ResponseEntity<List<Ticket>> pnrDetail(@PathVariable Integer pnr) {
+		ResponseEntity<List<Ticket>> bookedTicketDetail = restTemplate.exchange(
+				"http://flight-user-service/api/v1.0/flight/ticket/{pnr}", HttpMethod.GET, null,
+				new ParameterizedTypeReference<List<Ticket>>() {}, pnr);
 		return bookedTicketDetail;
+	}
+	
+	@DeleteMapping("/flight/ticket/{pnr}")
+	public ResponseEntity<List<Ticket>> cancelTicket(@PathVariable Integer pnr) {
+		ResponseEntity<List<Ticket>> cancelledTicketDetail = restTemplate.exchange(
+				"http://flight-user-service/api/v1.0/flight/booking/cancel/{pnr}", HttpMethod.DELETE, null,
+				new ParameterizedTypeReference<List<Ticket>>() {}, pnr);
+		System.out.println("cancelledTicketDetail: "+cancelledTicketDetail.getBody());
+		return cancelledTicketDetail;
 	}
 	
 }

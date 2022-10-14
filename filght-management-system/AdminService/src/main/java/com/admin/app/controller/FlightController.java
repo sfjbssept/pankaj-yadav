@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.admin.app.entity.Flight;
-import com.admin.app.service.AdminService;
+import com.admin.app.service.FlightService;
 
 @RestController
 public class FlightController {
 	
 	@Autowired
-	AdminService adminService;
+	FlightService flightService;
 	
 	//new airline booking
 	@PostMapping("/api/v1.0/flight/airline/register")
 	public ResponseEntity<Flight> registerFlight(@RequestBody Flight flight){
-		Flight registredflight = adminService.registerAirline(flight);
+		Flight registredflight = flightService.registerAirline(flight);
 		return new ResponseEntity<Flight>(registredflight,HttpStatus.CREATED);
 		
 	}
@@ -35,19 +35,19 @@ public class FlightController {
 	//get flight list
 	@GetMapping("/api/v1.0/flight/airline/list")
 	public ResponseEntity<List<Flight>> listAllFlight(){
-		List<Flight> registredflightList = adminService.getAllFlightDetails();
+		List<Flight> registredflightList = flightService.getAllFlightDetails();
 		return new ResponseEntity<List<Flight>>(registredflightList,HttpStatus.OK);
 	}
 	
 	@GetMapping("/api/v1.0/flight/airline/{flightnumber}")
 	public ResponseEntity<Flight> getFlight(@PathVariable Integer flightnumber){
-		Optional<Flight> responseflight = adminService.getFLightbyId(flightnumber);
+		Optional<Flight> responseflight = flightService.getFLightbyId(flightnumber);
 		return ResponseEntity.of(responseflight);
 	}
 	
 	@DeleteMapping("/api/v1.0/flight/airline/{flightnumber}")
 	public ResponseEntity<Flight> removeFlight(@PathVariable Integer flightnumber){
-		adminService.deleteFlight(flightnumber);
+		flightService.deleteFlight(flightnumber);
 		return new ResponseEntity<Flight>(HttpStatus.NOT_FOUND);
 	}
 	
@@ -56,7 +56,7 @@ public class FlightController {
 		List<Flight> responseFlightList = null;
 		System.out.println("allParams: "+allParams);
 		if(allParams.containsKey("source") && allParams.containsKey("destination")) {
-			responseFlightList = adminService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
+			responseFlightList = flightService.flightServiceBtweenDestinations(allParams.get("source"), allParams.get("destination"));
 			System.out.println("Source is: "+allParams.get("source")+" \n destination is "+allParams.get("destination"));
 		}
 		return new ResponseEntity<List<Flight>>(responseFlightList,HttpStatus.OK);
@@ -69,7 +69,7 @@ public class FlightController {
 //		String email = userDetails.get("email");
 //		System.out.println("flightNumber:  "+flightNumber+"userName: "+userName+" seatCount: "+seatCount);
 //
-//		Boolean flightBookflag =  adminService.bookFlight(flightNumber, email, seatCount, email);
+//		Boolean flightBookflag =  flightService.bookFlight(flightNumber, email, seatCount, email);
 //		return new ResponseEntity<Boolean>(flightBookflag,HttpStatus.OK);
 //	}
 	

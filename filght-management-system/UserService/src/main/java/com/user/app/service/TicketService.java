@@ -10,6 +10,8 @@ public interface TicketService {
 
 	List<Ticket> getTicketDetailByPNR(Integer pnr);
 
-	void confirmTicketByPNR(Integer flightPNR, String seatNumber, Date startDate, Date endDate);
+	void confirmTicketByPNR(Integer flightPNR,String ticketStaus, String seatNumber, Date startDate, Date endDate);
+
+	List<Ticket> cancelTicketDetailByPNR(Integer pnr,String ticketStaus);
 
 }

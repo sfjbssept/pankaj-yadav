@@ -22,7 +22,14 @@ public class Passenger {
 	private Integer PNRnumber;
 	private Date startDateTime;
 	private Date endDateTime;
+	private String ticketStatus;
 	
+	public String getTicketStatus() {
+		return ticketStatus;
+	}
+	public void setTicketStatus(String ticketStatus) {
+		this.ticketStatus = ticketStatus;
+	}
 	public Date getStartDateTime() {
 		return startDateTime;
 	}
