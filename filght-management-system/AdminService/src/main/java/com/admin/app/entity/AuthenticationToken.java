@@ -37,6 +37,8 @@ public class AuthenticationToken {
 		this.creationDate = new Date();
 		this.token = UUID.randomUUID().toString();
 	}
+	
+	public AuthenticationToken() {}
 
 	public String getToken() {
 		return token;

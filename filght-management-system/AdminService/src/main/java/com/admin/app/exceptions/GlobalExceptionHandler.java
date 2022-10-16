@@ -12,5 +12,10 @@ public class GlobalExceptionHandler {
 	public final ResponseEntity<String> handleCustomException(CustomException ex){
 		return new ResponseEntity<String>(ex.getMessage(),HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler(value = AuthenticationFailException.class)
+	public final ResponseEntity<String> handleAuthenticationFailException(AuthenticationFailException ex){
+		return new ResponseEntity<String>(ex.getMessage(),HttpStatus.BAD_REQUEST);
+	}
 
 }
