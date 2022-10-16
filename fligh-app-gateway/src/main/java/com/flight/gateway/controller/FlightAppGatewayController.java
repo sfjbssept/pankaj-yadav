@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.admin.app.entity.Admin;
 import com.admin.app.entity.Flight;
 import com.user.app.entity.Passenger;
 import com.user.app.entity.Ticket;
@@ -45,6 +46,26 @@ public class FlightAppGatewayController {
 	 * 
 	 * return "Flight number "+flightNumber+ "\n flight details "+response; }
 	 */
+	
+	@PostMapping("/flight/admin/signup")
+	public ResponseEntity<String> signUpAdmin(@RequestBody Admin admin) {
+		HttpEntity<Admin> requestBody = new HttpEntity<Admin>(admin);
+		restTemplate.exchange(
+				"http://flight-admin-service/api/v1.0/flight/admin/signup", HttpMethod.POST, requestBody,
+				new ParameterizedTypeReference<String>() {});
+		return new ResponseEntity<String>(admin+ " has been added successfully.",HttpStatus.OK);
+	}
+	
+	@PostMapping("/flight/admin/signin")
+	public ResponseEntity<String> signUpAdmin(@RequestParam Map<String,String> allParam) {
+		String email = allParam.get("email");
+		String password = allParam.get("password");
+		System.out.println("email is: "+email+" password is: "+password);
+		ResponseEntity<String> tokenString = restTemplate.exchange(
+				"http://flight-admin-service/api/v1.0/flight/admin/signin?email={email}&password={password}", HttpMethod.POST, null,
+				new ParameterizedTypeReference<String>() {},email,password);
+		return tokenString;
+	}
 	
 	@GetMapping("/flight/{flightNumber}")
 	public ResponseEntity<Flight> getFlightdetailById(@PathVariable Integer flightNumber) {
