@@ -1,0 +1,28 @@
+<div id="id01">
+  <form [formGroup]="formGroup">
+    <div class="imgcontainer">
+      <span (click)="close()" class="close"
+        title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <label for="uname"><strong>Username</strong></label>
+      <input type="text" placeholder="Enter Username" name="uname" formControlName="username" required>
+
+      <label for="psw"><strong>Password</strong></label>
+      <input type="password" placeholder="Enter Password" name="psw" formControlName="password" required>
+
+      <button type="submit" (click)="logMeIn()">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'"
+        class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="register"><a href="#">Sign UP</a></span>
+    </div>
+  </form>
+</div>
