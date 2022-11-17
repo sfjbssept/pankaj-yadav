@@ -1,7 +1,8 @@
 export default class Student{
-    firstName:String = " ";
-    secondName:String = " ";
-    age:Number = 0;
-    class:Number = 0;
-    subject:String = " "
+    firstname:String = " ";
+    lastname:String = " ";
+    age:number = 0;
+    class:number = 0;
+    subject:String = " ";
+    gender:String = " "
 }

@@ -22,7 +22,8 @@ import { RegisteredstudentComponent } from './components/registeredstudent/regis
     RegisterComponent,
     AboutComponent,
     ContactComponent,
-    RegisteredstudentComponent
+    RegisteredstudentComponent,
+    // HttpClientModule,
   ],
   imports: [
     BrowserModule,
