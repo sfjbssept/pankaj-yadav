@@ -1,0 +1,248 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\ul\b\f0\fs28\lang9 API : get Flight by Id\ulnone\b0\fs22\par
+GET:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/1209 }}{\fldrslt{http://localhost:8084/flight/1209\ul0\cf0}}}}\f0\fs22\par
+Request: None\par
+Response:\par
+\fs16  \{\par
+    "flightNumber": 1209,\par
+    "airline": "AirIndia",\par
+    "flightSource": "Delhi",\par
+    "flightDestination": "Mumbai",\par
+    "startDateTime": "2022-04-23T18:25:43.511+00:00",\par
+    "endDateTime": "2022-04-23T19:25:43.511+00:00",\par
+    "scheduledDays": "Daily",\par
+    "instruments": "Domestic",\par
+    "businessClassSeat": 40,\par
+    "nonBusinessClassSeat": 80,\par
+    "ticketFare": 5000.0,\par
+    "flightRows": 3,\par
+    "mealType": "none"\par
+\}\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\ul\b\fs28 API : Get All Flights\ulnone\b0\fs22\par
+GET:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight }}{\fldrslt{http://localhost:8084/flight\ul0\cf0}}}}\f0\fs22\par
+Request: None\par
+Response:\par
+\fs16 [\par
+    \{\par
+        "flightNumber": 1110,\par
+        "airline": "Vistara",\par
+        "flightSource": "Banglore",\par
+        "flightDestination": "Chennai",\par
+        "startDateTime": "2022-04-23T01:25:43.511+00:00",\par
+        "endDateTime": "2022-04-23T02:25:43.511+00:00",\par
+        "scheduledDays": "Daily",\par
+        "instruments": "Domestic",\par
+        "businessClassSeat": 90,\par
+        "nonBusinessClassSeat": 40,\par
+        "ticketFare": 6000.0,\par
+        "flightRows": 3,\par
+        "mealType": "non-veg"\par
+    \},\par
+    \{\par
+        "flightNumber": 1120,\par
+        "airline": "AirAsia",\par
+        "flightSource": "Delhi",\par
+        "flightDestination": "Kolkata",\par
+        "startDateTime": "2022-05-02T01:25:43.511+00:00",\par
+        "endDateTime": "2022-05-02T02:25:43.511+00:00",\par
+        "scheduledDays": "weekly",\par
+        "instruments": "Domestic",\par
+        "businessClassSeat": 40,\par
+        "nonBusinessClassSeat": 90,\par
+        "ticketFare": 4500.0,\par
+        "flightRows": 8,\par
+        "mealType": "non-veg"\par
+    \},\par
+    \{\par
+        "flightNumber": 1208,\par
+        "airline": "AirIndia",\par
+        "flightSource": "Banglore",\par
+        "flightDestination": "Mumbai",\par
+        "startDateTime": "2022-04-23T19:25:43.511+00:00",\par
+        "endDateTime": "2022-04-23T20:25:43.511+00:00",\par
+        "scheduledDays": "Daily",\par
+        "instruments": "Domestic",\par
+        "businessClassSeat": 70,\par
+        "nonBusinessClassSeat": 40,\par
+        "ticketFare": 5500.0,\par
+        "flightRows": 3,\par
+        "mealType": "none"\par
+    \}\par
+]\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\par
+\ul\b\fs28 API : Search Flights between the location\ulnone\b0\fs22\par
+GET:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/locations?source=delhi&destination=mumbai }}{\fldrslt{http://localhost:8084/flight/locations?source=delhi&destination=mumbai\ul0\cf0}}}}\f0\fs22\par
+Request Param:  key1=source value1=delhi,  key2=destination value2=mumbai\par
+Request: None\par
+Response:\par
+\fs16 [\par
+    \{\par
+        "flightNumber": 1209,\par
+        "airline": "AirIndia",\par
+        "flightSource": "Delhi",\par
+        "flightDestination": "Mumbai",\par
+        "startDateTime": "2022-04-23T18:25:43.511+00:00",\par
+        "endDateTime": "2022-04-23T19:25:43.511+00:00",\par
+        "scheduledDays": "Daily",\par
+        "instruments": "Domestic",\par
+        "businessClassSeat": 40,\par
+        "nonBusinessClassSeat": 80,\par
+        "ticketFare": 5000.0,\par
+        "flightRows": 3,\par
+        "mealType": "none"\par
+    \}\par
+]\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\ul\b\fs28 API : Get ticket details By PNR\ulnone\b0\fs22\par
+GET:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/ticket/88695984 }}{\fldrslt{http://localhost:8084/flight/ticket/88695984\ul0\cf0}}}}\f0\fs22\par
+Request: None\par
+Response:\par
+\fs16 [\par
+    \{\par
+        "startDateTime": "2022-05-02T01:25:43.511+00:00",\par
+        "endDateTime": "2022-05-02T02:25:43.511+00:00",\par
+        "seatNumber": "VGIB13",\par
+        "ticketStatus": "CONFIRM",\par
+        "pnrnumber": 88695984,\par
+        "ticketCode": 66\par
+    \},\par
+    \{\par
+        "startDateTime": "2022-05-02T01:25:43.511+00:00",\par
+        "endDateTime": "2022-05-02T02:25:43.511+00:00",\par
+        "seatNumber": "VGIB12",\par
+        "ticketStatus": "CONFIRM",\par
+        "pnrnumber": 88695984,\par
+        "ticketCode": 65\par
+    \}\par
+]\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\b\fs44 POST APIs\b0\fs16\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\ul\b\fs28 API :  Book Flight\ulnone\b0\fs22\par
+POST:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/book/10904?userName=pankaj&seatCount=2&email=pankaj.y@gmail.com }}{\fldrslt{http://localhost:8084/flight/book/10904?userName=pankaj&seatCount=2&email=pankaj.y@gmail.com\ul0\cf0}}}}\f0\fs22\par
+Request\fs16 : [\par
+    \{ \par
+    "firstName" : "pankaj",\par
+    "lastName" : "yadav",\par
+    "gender" : "Male",\par
+    "age" : 28,\par
+    "mealOpted" : "Veg",\par
+    "seatNumber" : "VGIB12",\par
+    "startDateTime" : "2022-05-02T01:25:43.511Z",\par
+    "endDateTime" : "2022-05-02T02:25:43.511Z"\par
+    \},\par
+    \{ \par
+    "firstName" : "prakash",\par
+    "lastName" : "singh",\par
+    "gender" : "male",\par
+    "age" : 27,\par
+    "mealOpted" : "Veg",\par
+    "seatNumber" : "VGIB13",\par
+    "startDateTime" : "2022-05-02T01:25:43.511Z",\par
+    "endDateTime" : "2022-05-02T02:25:43.511Z"\par
+    \}\par
+]\par
+\par
+\fs22 Response:\par
+\fs16 2 Ticket has been CONFIRM with PNR: 88695984 for the user: pankaj.y@gmail.com\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\ul\b\fs28 API :  Register Airline (Admin Operation)\ulnone\b0\fs22\par
+POST:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/register }}{\fldrslt{http://localhost:8084/flight/register\ul0\cf0}}}}\f0\fs22\par
+Auth: username:admin123 password: password\par
+Request\fs16 : \{\par
+    "flightNumber" : 10112,\par
+    "airline" : "IndiGo",\par
+    "flightSource" : "Mumbai",\par
+    "flightDestination" : "Pune",\par
+    "startDateTime" : "2022-05-02T01:25:43.511Z",\par
+    "endDateTime" : "2022-05-02T02:25:43.511Z",\par
+    "scheduledDays" :  "weekly",\par
+    "instruments" : "AirTaxy",\par
+    "businessClassSeat" : "25",\par
+    "nonBusinessClassSeat" : "75",\par
+    "ticketFare" : 2000.00,\par
+    "flightRows" : 3,\par
+    "mealType" : "veg"\par
+\}\par
+\fs22\par
+Response:\par
+\fs16\{\par
+    "flightNumber": 10112,\par
+    "airline": "IndiGo",\par
+    "flightSource": "Mumbai",\par
+    "flightDestination": "Pune",\par
+    "startDateTime": "2022-05-02T01:25:43.511+00:00",\par
+    "endDateTime": "2022-05-02T02:25:43.511+00:00",\par
+    "scheduledDays": "weekly",\par
+    "instruments": "AirTaxy",\par
+    "businessClassSeat": 25,\par
+    "nonBusinessClassSeat": 75,\par
+    "ticketFare": 2000.0,\par
+    "flightRows": 3,\par
+    "mealType": "veg"\par
+\}\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\ul\b\fs28 API :  Sign Up Admin\ulnone\b0\fs22\par
+POST:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/admin/signup }}{\fldrslt{http://localhost:8084/flight/admin/signup\ul0\cf0}}}}\f0\fs22\par
+Request\fs16 :\par
+ \{\par
+    "adminName" : "Admin3",\par
+    "adminLastName" : "adminLastName3",\par
+    "email" : "admin3@gmail.com",\par
+    "password" : "pass123"\par
+\}\par
+\fs22\par
+Response:\par
+\fs16 com.admin.app.entity.Admin@2f181bdd has been added successfully.\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\ul\b\fs28 API :  Sign In Admin\ulnone\b0\fs22\par
+POST:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/admin/signin?email=admin2@gmail.com&password=pass123 }}{\fldrslt{http://localhost:8084/flight/admin/signin?email=admin2@gmail.com&password=pass123\ul0\cf0}}}}\f0\fs22\par
+Auth: username:admin123 password: password\par
+Request\fs16 : NONE\fs22\par
+Response:\par
+\fs16 1788761c-924e-4c38-9f09-2ec7b17f5d61\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\ul\b\fs44 DELETE API\ulnone\b0\fs16\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\ul\b\fs28 API :  cancel ticket details By PNR\ulnone\b0\fs22\par
+DELETE:  {{\field{\*\fldinst{HYPERLINK http://localhost:8084/flight/ticket/88695984 }}{\fldrslt{http://localhost:8084/flight/ticket/88695984\ul0\cf0}}}}\f0\fs22\par
+Request\fs16 : NONE\par
+\fs22\par
+Response:\par
+\fs16 [\par
+    \{\par
+        "startDateTime": "2022-05-02T01:25:43.511+00:00",\par
+        "endDateTime": "2022-05-02T02:25:43.511+00:00",\par
+        "seatNumber": "VGIB12",\par
+        "ticketStatus": "\b CANCELLED\b0 ",\par
+        "pnrnumber": 88695984,\par
+        "ticketCode": 65\par
+    \},\par
+    \{\par
+        "startDateTime": "2022-05-02T01:25:43.511+00:00",\par
+        "endDateTime": "2022-05-02T02:25:43.511+00:00",\par
+        "seatNumber": "VGIB13",\par
+        "ticketStatus": "\b CANCELLED\b0 ",\par
+        "pnrnumber": 88695984,\par
+        "ticketCode": 66\par
+    \}\par
+]\par
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\par
+\par
+\par
+\par
+\par
+\par
+\fs22\par
+}
+ 
