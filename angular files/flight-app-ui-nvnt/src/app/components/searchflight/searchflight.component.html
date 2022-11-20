@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<p>searchflight works!</p>
+
+<!-- <form class="form-inline" id="searchForm">
+    <div class="form-group">
+        <input class="form-control mr-sm-2" type="search" placeholder="Enter 
+            id="speciesNameSearch" name="speciesNameSearch" 
+            (keyup.enter)="getSearchResult()" [(ngModel)]="speciesName"  >
+    </div>
+</form> -->
+
+<div class="container">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+        <div class="col-md-8">
+            <form [formGroup]="searchForm">
+                <div>
+                    <input type="radio" value="city" formControlName="searchType">Search BY Cities
+                    <input type="radio" value="flightNumber" formControlName="searchType">Search BY Flight Number
+                </div>
+                <div class="search" *ngIf="searchForm.get('searchType')?.value == 'flightNumber'">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="Search Flight By Flight Number" formControlName="searchText">
+                    <button (click)="searchflightnumber()" class="btn btn-primary" >Search</button>
+                </div>
+                <div class="search" *ngIf="searchForm.get('searchType')?.value == 'city'">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="From" formControlName="source">
+                    <input type="text" class="form-control" placeholder="To" formControlName="destination">
+                    <button (click)="searchByCity()" class="btn btn-primary" >Search</button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="flightResults?.length > 0">
+            <div *ngFor="let flightResult of flightResults">
+            <div class="fw-bold">Flight Number : {{flightResult.flightNumber}}</div><br>
+        Below is the details of {{flightResult.flightNumber}} flight :<br>
+        <b>Air Line</b>                 : {{flightResult.airline}}<br>
+        <b>Flight Source</b>           : {{flightResult.flightSource}}<br>
+        <b>Flight Destination</b>      : {{flightResult.flightDestination}}<br>
+        <b>Start Date Time</b>         : {{flightResult.startDateTime}}<br>
+        <b>End Date Time</b>           : {{flightResult.endDateTime}}<br>
+        <b>Scheduled Days</b>         : {{flightResult.scheduledDays}}<br>
+        <b>Instruments</b>             : {{flightResult.instruments}}<br>
+        <b>Business Class Seat</b>     : {{flightResult.businessClassSeat}}<br>
+        <b>Non Business Class Seat</b> : {{flightResult.nonBusinessClassSeat}}<br>
+        <b>Ticket Fare</b>             : {{flightResult.ticketFare}}<br>
+        <b>Flight Rows</b>             : {{flightResult.flightRows}}<br>
+        <b>Meal Type</b>               : {{flightResult.mealType}}<br>
+        </div></div>
+    </div>
+</div>

@@ -46,9 +46,9 @@ public class FlightController {
 	}
 	
 	@DeleteMapping("/api/v1.0/flight/airline/{flightnumber}")
-	public ResponseEntity<Flight> removeFlight(@PathVariable Integer flightnumber){
+	public ResponseEntity<String> removeFlight(@PathVariable Integer flightnumber){
 		flightService.deleteFlight(flightnumber);
-		return new ResponseEntity<Flight>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<String>("Resource has been deleted successfully",HttpStatus.ACCEPTED);
 	}
 	
 	@GetMapping("/api/v1.0/flight/search")

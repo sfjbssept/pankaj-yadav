@@ -20,8 +20,12 @@ export class FlightadminComponent implements OnInit {
     const observable = this.flighService.deleteFlight(flight);
     observable.subscribe((response:any) => {
       console.log(response);
-      this.flights.splice(index, 1)
+      
     })
+    
+    setTimeout(()=>{
+      this.flights.splice(index, 1);
+    },200)
   }
   
 

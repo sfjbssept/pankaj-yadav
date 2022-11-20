@@ -80,6 +80,17 @@ public class FlightAppGatewayController {
 		return response;
 	}
 	
+	@DeleteMapping("/flight/{flightNumber}")
+	public ResponseEntity<String> deleteFlightdetailById(@PathVariable Integer flightNumber) {
+		System.out.println("getting flight details for "+flightNumber);
+		
+		ResponseEntity<String> response = restTemplate.exchange("http://flight-admin-service/api/v1.0/flight/airline/{flightnumber}", HttpMethod.DELETE
+				,null,new ParameterizedTypeReference<String>() {},flightNumber);
+		
+		System.out.println("Response received as : "+response);
+		return response;
+	}
+	
 	@GetMapping("/flight")
 	public ResponseEntity<List<Flight>> getFlights() {
 		ResponseEntity<List<Flight>> response = restTemplate.exchange("http://flight-admin-service/api/v1.0/flight/airline/list", HttpMethod.GET

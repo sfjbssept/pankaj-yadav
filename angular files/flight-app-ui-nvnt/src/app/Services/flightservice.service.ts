@@ -19,12 +19,22 @@ export class FlightserviceService {
   }
 
   deleteFlight(flight:any) {
-    return this.http.delete(BASE_URL+"/deleteFlight/" + flight.id)
+    return this.http.delete(BASE_URL+"/" + flight.flightNumber)
   }
 
   getFlightsAsStringList() {
     //return this.http.get(BASE_URL_USER+"/flights");
     return this.http.get(BASE_URL+"/getFlightStrArray");
+  }
+
+  getFlightByNumber(flightNumber:any) {
+    //return this.http.get(BASE_URL_USER+"/flights");
+    return this.http.get(BASE_URL+"/"+ flightNumber);
+  }
+
+  getFlightByCity(source:any,destination:any) {
+    //return this.http.get(BASE_URL_USER+"/flights");
+    return this.http.get(BASE_URL+"/locations?source="+source+"&destination="+destination);
   }
 
   //=======================Flight Booking MGT================================

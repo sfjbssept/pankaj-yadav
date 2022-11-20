@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { FlighcreateComponent } from './components/flighcreate/flighcreate.compo
 import { FlightbookingComponent } from './components/flightbooking/flightbooking.component';
 import { BookingMgtComponent } from './components/booking-mgt/booking-mgt.component';
 import { LoginComponent } from './components/login/login.component';
+import { SearchflightComponent } from './components/searchflight/searchflight.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { LoginComponent } from './components/login/login.component';
     FlighcreateComponent,
     FlightbookingComponent,
     BookingMgtComponent,
-    LoginComponent
+    LoginComponent,
+    SearchflightComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
