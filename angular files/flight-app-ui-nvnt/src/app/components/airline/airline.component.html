@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<h1>Welcome {{user}} !!</h1>
+
+
+<h1 style="text-align: center; background-color: #f7b285" class="display-1">
+    Register Airline
+  </h1>
+  <br/>
+  <form class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Airline Name</label>
+        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="airline.airlineName" class="form-control" id="validationCustom01" placeholder="Enter your first name" required>
+        <div class="valid-feedback">
+            
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Airline Contact</label>
+        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="airline.contactNumber" class="form-control" id="validationCustom01" placeholder="Enter your first name" required>
+        <div class="valid-feedback">
+            
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Airline Description</label>
+        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="airline.description" class="form-control" id="validationCustom01" placeholder="Enter your first name" required>
+        <div class="valid-feedback">
+            
+        </div>
+    </div>
+
+    <div style="text-align: center;" class="col-12">
+        <button (click)="save()" class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+
+    </form>
+

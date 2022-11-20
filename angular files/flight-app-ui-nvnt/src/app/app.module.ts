@@ -1,40 +1,43 @@
 import { NgModule } from '@angular/core';
-// import { HttpClientModule } from '@angular/common/http';
-import {HttpClientModule} from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
-import { ReactiveFormsModule } from '@angular/forms';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './components/home/home.component';
+import { AppComponent } from './app.component';
+import { CaradminComponent } from './components/caradmin/caradmin.component';
+import { CarbrokerComponent } from './components/carbroker/carbroker.component';
+import { CarleaseComponent } from './components/carlease/carlease.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FlightadminComponent } from './components/flightadmin/flightadmin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AirlineComponent } from './components/airline/airline.component';
+import { FlighcreateComponent } from './components/flighcreate/flighcreate.component';
+import { FlightbookingComponent } from './components/flightbooking/flightbooking.component';
+import { BookingMgtComponent } from './components/booking-mgt/booking-mgt.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CaradminComponent,
+    CarbrokerComponent,
+    CarleaseComponent,
     NavbarComponent,
-    AdminloginComponent,
-    HomeComponent,
+    FlightadminComponent,
+    AirlineComponent,
+    FlighcreateComponent,
+    FlightbookingComponent,
+    BookingMgtComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    RouterModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatDialogModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
-  entryComponents: [AdminloginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

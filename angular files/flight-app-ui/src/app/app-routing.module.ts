@@ -3,12 +3,37 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 
-const routes: Routes = [{path:"login",component:AdminloginComponent}];
+// import { AirlineComponent } from './components/airline/airline.component';
+// import { BookingMgtComponent } from './components/booking-mgt/booking-mgt.component';
+// import { FlighcreateComponent } from './components/flighcreate/flighcreate.component';
+// import { FlightadminComponent } from './components/flightadmin/flightadmin.component';
+// import { FlightbookingComponent } from './components/flightbooking/flightbooking.component';
+// import { LoginComponent } from './components/login/login.component';
+// import Airline from './entity/Airline';
+
+const routes: Routes = [{path:"login",component:AdminloginComponent},
+// {path:"airline", component:AirlineComponent},
+// {path:"flightcreate", component:FlighcreateComponent},
+// {path:"flightadmin", component:FlightadminComponent},
+// {path:"flightbooking", component:FlightbookingComponent},
+// {path:"login", component:LoginComponent},
+// {path:"bookingMgt", component:BookingMgtComponent},
+// {path:"", component:LoginComponent},
+// {path:"logout", component:LoginComponent}
+];
+
+// @NgModule({
+//   declarations: [],
+//   imports: [
+//     CommonModule
+//   ]
+// })
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+     declarations: [],
+  imports: [CommonModule,
+            RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

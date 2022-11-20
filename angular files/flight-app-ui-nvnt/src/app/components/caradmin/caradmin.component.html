@@ -1,0 +1,59 @@
+<h1 style="text-align: center; background-color: #f7b285" class="display-1">
+    Add your car
+  </h1>
+  <br/>
+  <form class="row g-3 needs-validation" novalidate>
+    
+    <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Car Make</label>
+        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="car.make"  class="form-control" id="validationCustom02" placeholder="Ex - BMW" required>
+        <div class="valid-feedback">
+            
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <label for="validationCustom02" class="form-label">Car Model</label>
+        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="car.model"  class="form-control" id="validationCustom02" placeholder="Sport or delux" required>
+        <div class="valid-feedback">
+            
+        </div>
+    </div>
+  
+    <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">Car Version</label>
+        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="car.version"  placeholder="Version: 1.2, 2.5" type="text" class="form-control" id="validationCustom03" required>
+        <div class="invalid-feedback">
+        
+        </div>
+    </div>
+  
+    <div class="col-md-7">
+        <label for="validationCustom05" class="form-label">No of doors</label>
+        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="car.doors"  type="number" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">
+            
+        </div>
+    </div>
+    <div class="col-md-8">
+        <label for="validationCustom05" class="form-label">Gross Price</label>
+        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="car.grossprice"  type="number" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">
+            
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <label for="validationCustom05" class="form-label">NET Price</label>
+        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="car.netprice"  type="number" class="form-control" id="validationCustom05" required>
+        <div class="invalid-feedback">
+            
+        </div>
+    </div>
+    
+        <div style="text-align: center;" class="col-12">
+            <button (click)="save()" class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+  
+  
+  </form>

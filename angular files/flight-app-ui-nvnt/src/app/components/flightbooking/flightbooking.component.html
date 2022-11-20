@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<h1>Welcome {{user}} !!</h1>
+
+<h1 style="text-align: center; background-color: #f7b285" class="display-1">Book a flight</h1>
+<br/>
+<form class="row g-3 needs-validation" novalidate>
+  <!-- <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Select Flight</label>
+      <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="booking.flight" class="form-control" id="validationCustom01" placeholder="selected flight" required>
+  </div> -->
+  
+  <!-- Available Flight drop down-->
+
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Select Flight</label>
+    <select style="height:40px; width:450px;" [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="booking.flight" class="form-control" id="validationCustom01" placeholder="selected flight" required="true">
+      <option *ngFor="let f of flights" [ngValue]=f>
+        {{f}}
+        <!-- {{f.airline}}:{{f.source}}:{{f.destination}}:{{f.date}} -->
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Select No of seats</label>
+    <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="booking.seats" class="form-control" id="validationCustom01" placeholder="select no of seats" required>
+</div>
+  
+  <p> you have selected {{booking.flight}} and seats: {{booking.seats}}</p> <br>
+  <p> PNR is: {{pnr}}</p>
+  
+  
+  <div style="text-align: center;" class="col-12">
+      <button (click)="save()" class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+  
+
+
+</form>
+
+
+
+
+
+
+
+
+
+<!-- <ol class="list-group list-group-numbered">
+    <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let s of bookings; index as i">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{s.flight}</div> Seats: {{s.seats}} TOTAL: {{s.price}}
+      </div>
+      <button type="submit" (click)="deleteBooking(s,i)   " style="background-color: red;" class="btn-close" aria-label="Close"></button>
+    </li>
+  </ol> -->

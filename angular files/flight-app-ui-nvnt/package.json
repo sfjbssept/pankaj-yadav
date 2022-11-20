@@ -1,5 +1,5 @@
 {
-  "name": "flight-app-ui",
+  "name": "flight-system-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -15,10 +15,11 @@
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
     "@angular/forms": "^14.2.0",
-    "@angular/material": "^14.2.0",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "bootstrap": "^5.2.2",
+    "jquery": "^3.6.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
