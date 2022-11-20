@@ -1,30 +1,28 @@
 <app-navbar></app-navbar>
-<h1>Welcome {{user}} !!</h1>
-
-
-<h1 style="text-align: center; background-color: #F7B285 ;" class="display-1">List of Flight</h1>
+<h1>WELCOME {{user}}</h1>
+<h4 class="display-1">LIST OF ALL FLIGHTS</h4>
 <br/>
 
 
 <ol class="list-group list-group-numbered">
     <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let s of flights; index as i">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">{{s.flightNumber}}</div><br>
-        Below is the flight detail:
-        airline: {{s.airline}}<br>
-        flightSource: {{s.flightSource}}<br>
-        flightDestination: {{s.flightDestination}}<br>
-        startDateTime: {{s.startDateTime}}<br>
-        endDateTime: {{s.endDateTime}}<br>
-        scheduledDays: {{s.scheduledDays}}<br>
-        instruments: {{s.instruments}}<br>
-        businessClassSeat: {{s.businessClassSeat}}<br>
-        nonBusinessClassSeat: {{s.nonBusinessClassSeat}}<br>
-        ticketFare: {{s.ticketFare}}<br>
-        flightRows: {{s.flightRows}}<br>
-        mealType: {{s.mealType}}<br>
+        <div class="fw-bold">Flight Number : {{s.flightNumber}}</div><br>
+        Below is the details of {{s.flightNumber}} flight :<br>
+        <b>Air Line</b>                 : {{s.airline}}<br>
+        <b>Flight Source</b>           : {{s.flightSource}}<br>
+        <b>Flight Destination</b>      : {{s.flightDestination}}<br>
+        <b>Start Date Time</b>         : {{s.startDateTime}}<br>
+        <b>End Date Time</b>           : {{s.endDateTime}}<br>
+        <b>Scheduled Days</b>         : {{s.scheduledDays}}<br>
+        <b>Instruments</b>             : {{s.instruments}}<br>
+        <b>Business Class Seat</b>     : {{s.businessClassSeat}}<br>
+        <b>Non Business Class Seat</b> : {{s.nonBusinessClassSeat}}<br>
+        <b>Ticket Fare</b>             : {{s.ticketFare}}<br>
+        <b>Flight Rows</b>             : {{s.flightRows}}<br>
+        <b>Meal Type</b>               : {{s.mealType}}<br>
       </div>
-      <button type="submit" (click)="deleteFlight1(s,i)   " style="background-color: red;" class="btn-close" aria-label="Close"></button>
+      <button type="submit" (click)="deleteFlight1(s,i)   " style="background-color: #1b9dda;" class="btn-close" aria-label="Close"></button>
     </li>
   </ol>
 

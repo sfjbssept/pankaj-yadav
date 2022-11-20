@@ -15,7 +15,7 @@ export class FlightserviceService {
   }
 
   getFlight() {
-    return this.http.get(BASE_URL+"/getFlights");
+    return this.http.get(BASE_URL);
   }
 
   deleteFlight(flight:any) {

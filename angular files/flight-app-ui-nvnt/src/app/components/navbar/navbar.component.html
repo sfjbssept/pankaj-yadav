@@ -7,9 +7,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           
-          <a *ngIf="user=='admin'" class="nav-link active" aria-current="page" routerLink="/airline">Airline</a>
-          <a *ngIf="user=='admin'" class="nav-link" routerLink="/flightcreate">Create Flight</a>
-          <a *ngIf="user=='admin'" class="nav-link" routerLink="/flightadmin">Manage Flights</a>
+          <!-- <a *ngIf="user=='admin'" class="nav-link active" aria-current="page" routerLink="/airline">Airline</a> -->
+          <a *ngIf="user=='admin'" class="nav-link" routerLink="/flightcreate">Register-New-Flight</a>
+          <a *ngIf="user=='admin'" class="nav-link" routerLink="/flightadmin">List-Flights</a>
           <a *ngIf="user!='admin'" class="nav-link" routerLink="/flightbooking">FlightBooking</a>
           <a *ngIf="user!='admin'" class="nav-link" routerLink="/bookingMgt">Manage Booking</a>
           <a class="nav-link" routerLink="/logout">Log out</a>
