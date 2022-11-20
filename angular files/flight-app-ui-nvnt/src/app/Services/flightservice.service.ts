@@ -38,8 +38,8 @@ export class FlightserviceService {
   }
 
   //=======================Flight Booking MGT================================
-  bookFlight(booking: {user:String, airline:String, source:String, destination:String, date:String, seatcount:number}) {
-    return this.http.post(BASE_URL_USER+"/addBooking", booking);
+  bookFlight(formData:any) {
+    return this.http.post(BASE_URL+"/book/"+"10904"+"?userName="+formData.userName+"&seatCount="+formData.seatCount+"&email="+formData.email, formData.flightDetails);
   }
 
   getBookings() {

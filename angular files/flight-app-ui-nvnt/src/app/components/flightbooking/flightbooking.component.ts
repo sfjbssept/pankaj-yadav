@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import Booking from 'src/app/entity/Booking';
 import Flight from 'src/app/entity/Flight';
 import FlightBookingDetail from 'src/app/entity/FlightBookingDetail';
@@ -12,6 +13,36 @@ import { FlightserviceService } from 'src/app/Services/flightservice.service';
 })
 
 export class FlightbookingComponent implements OnInit {
+  flightForm = new FormGroup({
+    seatCount:new FormControl(''),
+    email:new FormControl(''),
+    flightDetails: new FormArray([])
+  })
+
+  flightDetails(){
+    return new FormGroup({
+      firstName:new FormControl(''),
+      lastName:new FormControl(''),
+      gender:new FormControl('Male'),
+      age:new FormControl('Male'),
+      mealOpted:new FormControl('Male'),
+      seatNumber:new FormControl('Male'),
+      startDateTime:new FormControl('Male'),
+      endDateTime:new FormControl('Male')
+    })
+  }
+
+  skills() : FormArray {
+    return this.flightForm.get("flightDetails") as FormArray
+  }
+
+  get newSkills() : FormArray {
+    return this.flightForm.get("flightDetails") as FormArray
+  }
+
+  addSkills() {
+    this.newSkills.push(this.flightDetails());
+  }
 
   booking: Booking = new Booking();
   bookingDetail: FlightBookingDetail = new FlightBookingDetail();
@@ -23,8 +54,16 @@ export class FlightbookingComponent implements OnInit {
 
 
   save() {
-    this.parseSelectedFlight();
-    const observables = this.flightService.bookFlight(this.bookingDetail);
+    //this.parseSelectedFlight();
+    const formData = {
+      userName: sessionStorage.getItem('USER'),
+      seatCount:this.flightForm.value.seatCount,
+      email:this.flightForm.value.email,
+      flightDetails:this.flightForm.value.flightDetails
+    }
+
+    console.log(formData)
+    const observables = this.flightService.bookFlight(formData);
     observables.subscribe(
       (response: any) => {
          console.log(response);
@@ -72,9 +111,24 @@ export class FlightbookingComponent implements OnInit {
       console.log(response);
       //this.flights = response as Flight[]; //String[];
       this.flights = response as String[];
+    });
+    this.flightForm.get('seatCount')?.valueChanges.subscribe((value)=>{
+      if(value){
+        (this.flightForm.get('flightDetails') as FormArray).clear();
+        for (let index = 0; index < parseInt(value); index++) {
+          this.addSkills();
+        }
+      }
+      else{
+        (this.flightForm.get('flightDetails') as FormArray).clear();
+      }
+      
+      
     })
   }
 
-  constructor(public flightService: FlightserviceService) {}
+  constructor(public flightService: FlightserviceService) {
+    //this.addSkills();
+  }
 
 }
