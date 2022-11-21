@@ -16,6 +16,7 @@ export class FlightbookingComponent implements OnInit {
   flightForm = new FormGroup({
     seatCount:new FormControl(''),
     email:new FormControl(''),
+    flightnumber:new FormControl(''),
     flightDetails: new FormArray([])
   })
 
@@ -59,6 +60,7 @@ export class FlightbookingComponent implements OnInit {
       userName: sessionStorage.getItem('USER'),
       seatCount:this.flightForm.value.seatCount,
       email:this.flightForm.value.email,
+      flightnumber:this.flightForm.value.flightnumber,
       flightDetails:this.flightForm.value.flightDetails
     }
 

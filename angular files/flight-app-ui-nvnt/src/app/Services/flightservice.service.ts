@@ -32,6 +32,10 @@ export class FlightserviceService {
     return this.http.get(BASE_URL+"/"+ flightNumber);
   }
 
+  searchTktByPNR(pnrnumber:any){
+    return this.http.get(BASE_URL+"/ticket/"+ pnrnumber);
+  }
+
   getFlightByCity(source:any,destination:any) {
     //return this.http.get(BASE_URL_USER+"/flights");
     return this.http.get(BASE_URL+"/locations?source="+source+"&destination="+destination);
@@ -39,11 +43,11 @@ export class FlightserviceService {
 
   //=======================Flight Booking MGT================================
   bookFlight(formData:any) {
-    return this.http.post(BASE_URL+"/book/"+"10904"+"?userName="+formData.userName+"&seatCount="+formData.seatCount+"&email="+formData.email, formData.flightDetails);
+    return this.http.post(BASE_URL+"/book/"+formData.flightnumber+"?userName="+formData.userName+"&seatCount="+formData.seatCount+"&email="+formData.email, formData.flightDetails);
   }
 
   getBookings() {
-    return this.http.get(BASE_URL_USER+"/getBookings")
+    return this.http.get(BASE_URL+"/getBookings")
   }
 
   deleteBooking(booking: any) {

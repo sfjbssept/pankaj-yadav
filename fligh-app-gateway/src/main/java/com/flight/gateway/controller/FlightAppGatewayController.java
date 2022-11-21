@@ -23,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.admin.app.entity.Admin;
 import com.admin.app.entity.Flight;
+import com.flight.gateway.entity.TicketBookResponse;
 import com.user.app.entity.Passenger;
 import com.user.app.entity.Ticket;
 import com.user.app.entity.User;
@@ -136,7 +137,7 @@ public class FlightAppGatewayController {
 	
 	
 	@PostMapping("/flight/book/{flightNumber}")
-	public ResponseEntity<String> bookFlight(@PathVariable Integer flightNumber,@RequestBody List<Passenger> passangerDetails,@RequestParam Map<String,String> userDetails) {
+	public TicketBookResponse bookFlight(@PathVariable Integer flightNumber,@RequestBody List<Passenger> passangerDetails,@RequestParam Map<String,String> userDetails) {
 		
 		String userName = userDetails.get("userName");
 		Integer seatCount = Integer.parseInt(userDetails.get("seatCount"));
@@ -164,10 +165,14 @@ public class FlightAppGatewayController {
 //					HttpMethod.POST,request,new ParameterizedTypeReference<User>() {},userName,seatCount,email);
 			
 			String responseMsg = user.getSeatCount()+" Ticket has been "+user.getTicketStatus()+" with PNR: "+user.getPNRnumber()+" for the user: "+user.getUserName();
-			
-			return new ResponseEntity<String>(responseMsg, HttpStatus.CREATED);
+			TicketBookResponse tktBookResponse = new TicketBookResponse(responseMsg, "SUCCESS");
+			return tktBookResponse;
+			//return new ResponseEntity<String>(responseMsg, HttpStatus.CREATED);
 		}else {
-			return new ResponseEntity<String>("Flight does not exists",HttpStatus.NOT_FOUND);
+			String errorMsg = "Flight does not exists";
+			TicketBookResponse tktBookResponse = new TicketBookResponse(errorMsg, "SUCCESS");
+			return tktBookResponse;
+			//return new ResponseEntity<String>("Flight does not exists",HttpStatus.NOT_FOUND);
 		}
 	}
 	
