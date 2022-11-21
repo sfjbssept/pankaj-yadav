@@ -8,15 +8,20 @@
   <!-- <p style="text-align: center;"><b></b> -->
 
 <div class="search">
+  <form [formGroup]="bookingForm">
   <input type="text" class="form-control" placeholder="Enter PNR Number To Get Ticket Details" formControlName="searchText">
   <button (click)="searchPNRdetail()" class="btn btn-primary" >Search</button>
+</form>
 </div>
 
-<!-- <ol class="list-group list-group-numbered">
-    <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let s of bookings; index as i">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">{{s.airline}}</div> from {{s.source}} to {{s.destination}} date of flight: {{s.date}} Fare: {{s.fare}} Seats: {{s.seatcount}}
-      </div>
-      <button type="submit" (click)="deleteBooking(s,i)   " style="background-color: red;" class="btn-close" aria-label="Close"></button>
-    </li>
-</ol> -->
+<div *ngIf="tktResults?.length > 0">
+  <div *ngFor="let tktResult of tktResults; let i = index;">
+    <div (click)="deleteBooking(tktResult.pnrnumber, i)">Delete</div>
+  <div class="fw-bold">PNR Number : {{tktResult.pnrnumber}}</div><br>
+Below is the details of PNR {{tktResult.pnrnumber}} :<br>
+<b>Air Line</b>                 : {{tktResult.seatNumber}}<br>
+<b>Flight Source</b>           : {{tktResult.ticketStatus}}<br>
+<b>Flight Destination</b>      : {{tktResult.ticketCode}}<br>
+<b>Start Date Time</b>         : {{tktResult.startDateTime}}<br>
+<b>End Date Time</b>           : {{tktResult.endDateTime}}<br>
+</div></div>

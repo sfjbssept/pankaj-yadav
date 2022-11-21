@@ -19,6 +19,7 @@ export class FlightbookingComponent implements OnInit {
     flightnumber:new FormControl(''),
     flightDetails: new FormArray([])
   })
+  responseMessage: any;
 
   flightDetails(){
     return new FormGroup({
@@ -68,6 +69,7 @@ export class FlightbookingComponent implements OnInit {
     const observables = this.flightService.bookFlight(formData);
     observables.subscribe(
       (response: any) => {
+        this.responseMessage = response.responseMessage;
          console.log(response);
       },
       function (error) {

@@ -51,7 +51,7 @@ export class FlightserviceService {
   }
 
   deleteBooking(booking: any) {
-    return this.http.delete(BASE_URL_USER+"/deleteBooking",booking.id)
+    return this.http.delete(BASE_URL+"/ticket/"+booking)
   }
 
   constructor(public http: HttpClient) { }

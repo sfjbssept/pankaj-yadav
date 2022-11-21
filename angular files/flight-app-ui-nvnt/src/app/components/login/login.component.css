@@ -18,7 +18,7 @@ body {
    right: -500px;
    opacity: .8;
     animation: cloud 10s linear 0s infinite reverse;
-   z-index: 99;
+   /* z-index: 99; */
  }
  @keyframes light {
    0% {opacity: 0;}

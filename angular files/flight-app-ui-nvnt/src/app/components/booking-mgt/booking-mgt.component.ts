@@ -9,22 +9,20 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./booking-mgt.component.css']
 })
 export class BookingMgtComponent implements OnInit {
-  searchForm = new FormGroup({
-    searchType:new FormControl('flightNumber'),
-    searchText:new FormControl(''),
-    source:new FormControl(''),
-    destination:new FormControl(''),
+  bookingForm = new FormGroup({
+    searchText:new FormControl('')
   })
 
   bookings: FlightBookingDetail[] = [];
   user: any = sessionStorage.getItem("USER");
   tktResults: any;
 
-  deleteBooking(booking: any,index: number) {
-     const observable = this.flightService.deleteBooking(booking)
+  deleteBooking(pnrnumber: any,index: number) {
+    console.log(pnrnumber)
+     const observable = this.flightService.deleteBooking(pnrnumber)
      observable.subscribe((response:any) => {
        console.log(response);
-       this.bookings.splice(index, 1)
+       this.tktResults[index] = response[0];
      })
   }
 
@@ -34,10 +32,10 @@ export class BookingMgtComponent implements OnInit {
   // }
 
   searchPNRdetail() {
-    alert(this.searchForm.get('searchText')?.value);
-    const observable = this.flightService.searchTktByPNR(this.searchForm.get('searchText')?.value).subscribe((data)=>{
+    alert(this.bookingForm.get('searchText')?.value);
+    const observable = this.flightService.searchTktByPNR(this.bookingForm.get('searchText')?.value).subscribe((data)=>{
       console.log(data)
-      this.tktResults = [data];
+      this.tktResults = data;
     })
   }
 
@@ -52,5 +50,7 @@ export class BookingMgtComponent implements OnInit {
      })
 
   }
+
+  
 
 }
