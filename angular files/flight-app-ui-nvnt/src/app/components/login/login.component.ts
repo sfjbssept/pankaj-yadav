@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['airline'])
     } else {
       sessionStorage.setItem("USER", this.username);
-      this.router.navigate(['flightbooking'])
+      this.router.navigate(['/searchflight'])
     }
     
   }
