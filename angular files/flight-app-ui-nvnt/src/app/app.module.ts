@@ -5,9 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CaradminComponent } from './components/caradmin/caradmin.component';
-import { CarbrokerComponent } from './components/carbroker/carbroker.component';
-import { CarleaseComponent } from './components/carlease/carlease.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FlightadminComponent } from './components/flightadmin/flightadmin.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,9 +18,6 @@ import { SearchflightComponent } from './components/searchflight/searchflight.co
 @NgModule({
   declarations: [
     AppComponent,
-    CaradminComponent,
-    CarbrokerComponent,
-    CarleaseComponent,
     NavbarComponent,
     FlightadminComponent,
     AirlineComponent,
