@@ -1,11 +1,12 @@
 <app-navbar></app-navbar>
+<div class="div_bgImg">
 <h1>WELCOME {{user}}</h1>
 <h4 class="display-1">LIST OF ALL FLIGHTS</h4>
 <br/>
 <div>
   <marquee direction="right" 
-  behavior="alternate" 
-  style="border:#EEEEEE 5px SOLID; color: #17A2B8;">
+  behavior="alternate" >
+  <!-- style="border:#EEEEEE 5px SOLID; color: #17A2B8;"> -->
   <b>Press Cancel Button To Un-Register Any Flight</b>
 </marquee>
 </div>
@@ -13,8 +14,8 @@
 <ol class="list-group list-group-numbered">
     <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let s of flights; index as i">
       <div class="ms-2 me-auto">
-        <div class="fw-bold">Flight Number : {{s.flightNumber}}</div><br>
-        Below is the details of {{s.flightNumber}} flight :<br>
+        <div class="fw-bold">Flight Number : {{s.flightNumber}}</div>
+        Below is the details of {{s.flightNumber}} flight :<br><br>
         <b>Air Line</b>                 : {{s.airline}}<br>
         <b>Flight Source</b>           : {{s.flightSource}}<br>
         <b>Flight Destination</b>      : {{s.flightDestination}}<br>
@@ -28,9 +29,10 @@
         <b>Flight Rows</b>             : {{s.flightRows}}<br>
         <b>Meal Type</b>               : {{s.mealType}}<br>
       </div>
-      <button type="submit" (click)="deleteFlight1(s,i)   " style="background-color: #1b9dda;" class="btn-close" aria-label="Close"></button>
+      <button type="submit" (click)="deleteFlight1(s,i)   " style="background-color: #2a6885;" class="btn-close" aria-label="Close"></button>
     </li>
   </ol>
+</div>
 
 
 

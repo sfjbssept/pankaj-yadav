@@ -1,0 +1,25 @@
+/* .navbar-brand > li{
+    padding-left:30px;
+    padding-right:30px;
+  } */
+
+.navbar-brand{
+    background-color: #009DD2; 
+    /* border-radius: 25px; */
+    /* border: 3px solid rgb(84, 84, 138); */
+    padding: 10px; 
+    width: 330px;
+    height: 60px; 
+}
+
+.cls-log-out{
+    color: white;
+    font-weight: bold;
+    background-color: #DD0031; 
+    border-radius: 10px;
+    /* border: 3px solid rgb(84, 84, 138); */
+    padding: 10px; 
+    width: 75px;
+    height: 40px;
+    margin-left:450px;
+}
