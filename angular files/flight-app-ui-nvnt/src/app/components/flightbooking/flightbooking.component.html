@@ -1,90 +1,101 @@
 <app-navbar></app-navbar>
-<h1>Welcome {{user}} </h1>
+<div class="div_bgImg">
+  <h1>Welcome {{user}} </h1>
 
-<h2>BOOK YOUR FLIGHT</h2>
-<div>{{responseMessage}}</div>
-<br/>
-<form class="row g-3 needs-validation" [formGroup]="flightForm">
-  <!-- <div class="col-md-4">
+  <h2>BOOK YOUR FLIGHT</h2>
+
+  <br />
+  <form class="row g-3 needs-validation" [formGroup]="flightForm">
+    <!-- <div class="col-md-4">
       <label for="validationCustom01" class="form-label">Select Flight</label>
       <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="booking.flight" class="form-control" id="validationCustom01" placeholder="selected flight" >
   </div> -->
-  
-  <!-- Available Flight drop down-->
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Flight Number</label>
-    <input type="text" formControlName="flightnumber" class="form-control" id="validationCustom01" placeholder="Enter Flight Number" >
-  </div>
-  
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Enter Number of Seats to Book</label>
-    <input type="text" formControlName="seatCount" class="form-control" id="validationCustom01" placeholder="select no of seats" >
-</div>
 
-<div class="col-md-4">
-  <label for="validationCustom02" class="form-label">Enter Mail ID</label>
-  <input type="text" formControlName="email" class="form-control" id="validationCustom01" placeholder="email id" >
-</div>
+    <!-- Available Flight drop down-->
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Flight Number</label>
+      <input type="text" formControlName="flightnumber" class="form-control" id="validationCustom01"
+        placeholder="Enter Flight Number">
+    </div>
 
-  <div formArrayName="flightDetails">
-    <ng-container  *ngFor="let skill of skills()?.controls; let i=index">
-      <ng-container  [formGroupName]="i">
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Enter Number of Seats to Book</label>
+      <input type="text" formControlName="seatCount" class="form-control" id="validationCustom01"
+        placeholder="select no of seats">
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Enter Mail ID</label>
+      <input type="text" formControlName="email" class="form-control" id="validationCustom01" placeholder="email id">
+    </div>
+
+    <div formArrayName="flightDetails">
+      <ng-container *ngFor="let skill of skills()?.controls; let i=index">
+        <ng-container [formGroupName]="i">
 
 
-<div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">First Name</label>
-    <input type="text" formControlName="firstName" class="form-control" id="validationCustom01" placeholder="passenger - first name" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Last Name</label>
-    <input type="text" formControlName="lastName" class="form-control" id="validationCustom01" placeholder="passenger - last name" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Gender</label>
-    <input type="text" formControlName="gender" class="form-control" id="validationCustom01" placeholder="passenger - Gender" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Age</label>
-    <input type="text" formControlName="age" class="form-control" id="validationCustom01" placeholder="passenger - Age" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Meal Opted</label>
-    <input type="text" formControlName="mealOpted" class="form-control" id="validationCustom01" placeholder="passenger - Meal Opted" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">seatNumber</label>
-    <input type="text" formControlName="seatNumber" class="form-control" id="validationCustom01" placeholder="passenger - Seat Number" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">Start Date Time</label>
-    <input type="text" formControlName="startDateTime" class="form-control" id="validationCustom01" placeholder="passenger - Start Date Time" >
-  </div>
-  <div class="col-md-4">
-    <label for="validationCustom02" class="form-label">End Date Time</label>
-    <input type="text" formControlName="endDateTime" class="form-control" id="validationCustom01" placeholder="passenger - End Date Time" >
-  </div>
+          <div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">First Name</label>
+              <input type="text" formControlName="firstName" class="form-control" id="validationCustom01"
+                placeholder="passenger - first name">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Last Name</label>
+              <input type="text" formControlName="lastName" class="form-control" id="validationCustom01"
+                placeholder="passenger - last name">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Gender</label>
+              <input type="text" formControlName="gender" class="form-control" id="validationCustom01"
+                placeholder="passenger - Gender">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Age</label>
+              <input type="text" formControlName="age" class="form-control" id="validationCustom01"
+                placeholder="passenger - Age">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Meal Opted</label>
+              <input type="text" formControlName="mealOpted" class="form-control" id="validationCustom01"
+                placeholder="passenger - Meal Opted">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">seatNumber</label>
+              <input type="text" formControlName="seatNumber" class="form-control" id="validationCustom01"
+                placeholder="passenger - Seat Number">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Start Date Time(Eg: 2022-12-20T02:25:43.511Z)</label>
+              <input type="text" formControlName="startDateTime" class="form-control" id="validationCustom01"
+                placeholder="passenger - Start Date Time">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">End Date Time(Eg: 2022-12-20T02:25:43.511Z)</label>
+              <input type="text" formControlName="endDateTime" class="form-control" id="validationCustom01"
+                placeholder="passenger - End Date Time">
+            </div>
 
-</div>
-</ng-container>
-</ng-container>
-</div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
 
- <!-- <p> you have selected {{booking.flight}} and seats: {{booking.seats}}</p> <br>
+    <!-- <p> you have selected {{booking.flight}} and seats: {{booking.seats}}</p> <br>
   <p> PNR is: {{pnr}}</p>  -->
-  
-  
-  <div style="text-align: center;" class="col-12">
+
+
+    <div style="text-align: center;" class="col-12">
       <button (click)="save()" class="btn btn-primary" type="submit">Submit form</button>
-  </div>
-  
-
-
-</form>
+    </div>
 
 
 
+  </form>
 
+  <div class="clg-response-msg">{{responseMessage}}</div>
+
+</div>
 
 
 

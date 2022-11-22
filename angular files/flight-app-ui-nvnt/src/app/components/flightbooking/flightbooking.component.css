@@ -1,2 +1,37 @@
-h1{text-align: center}
-h2{text-align: center; background-color: #1b9dda; color: aqua;}
+h1 {
+    text-align: center
+}
+
+h2 {
+    text-align: center;
+    background-color: #1b9dda;
+    color: aqua;
+}
+
+.div_bgImg {
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+    /* background-repeat: no-repeat; */
+    /* background-position: 100px 10px; */
+    /* background-attachment: fixed; */
+    background-image: url('https://media.istockphoto.com/id/1024209262/photo/abstract-blur-contemporary-office-interior-blue-background-concept.jpg?s=612x612&w=0&k=20&c=xGWDWRk2k_Wz2WefBlFcIKjqdOiZxc2EKlrenKV2Quw=');
+}
+
+label {
+    font-weight: bold;
+    color: rgb(84, 84, 138);
+}
+
+.clg-response-msg {
+    color: rgb(163, 26, 26);
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background-color: yellow;
+    /* border-radius: 10px;
+    border: 4px solid rgb(84, 84, 138);
+    padding: 10px; 
+    width: 1345px;
+    height: 40px; */
+    /* margin-left:450px; */
+}

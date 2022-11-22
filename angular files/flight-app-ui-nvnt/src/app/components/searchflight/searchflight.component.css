@@ -1,0 +1,24 @@
+h1 {
+    text-align: center
+}
+
+h2 {
+    text-align: center;
+    background-color: #1b9dda;
+    color: aqua;
+}
+
+.div_bgImg {
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+    /* background-repeat: no-repeat; */
+    /* background-position: 100px 10px; */
+    /* background-attachment: fixed; */
+    background-image: url('https://media.istockphoto.com/id/1024209262/photo/abstract-blur-contemporary-office-interior-blue-background-concept.jpg?s=612x612&w=0&k=20&c=xGWDWRk2k_Wz2WefBlFcIKjqdOiZxc2EKlrenKV2Quw=');
+}
+
+.form-check-label {
+        margin: 0 15px 0 15px;
+        font-weight: bold;
+        color: rgb(84, 84, 138);
+}

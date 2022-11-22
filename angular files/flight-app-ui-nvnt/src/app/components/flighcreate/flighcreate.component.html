@@ -1,118 +1,134 @@
 <app-navbar></app-navbar>
 <div class="div_bgImg">
-<h1 style="text-align: center;">WELCOME {{user}} </h1>
+    <h1 style="text-align: center;">WELCOME {{user}} </h1>
 
-<h4 class="display-1">
-    REGISTER A NEW FLIGHT
-  </h4>
-  <br/>
-  <form class="row g-3 needs-validation" novalidate>
-    <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Flight Number</label>
-        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="flight.flightNumber"  class="form-control" id="validationCustom00" placeholder="Flight Number" required>
-        <div class="valid-feedback">
-            
-        </div>
-    </div>
-    <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">Airline</label>
-        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="flight.airline"  class="form-control" id="validationCustom01" placeholder="Airline Name" required>
-        <div class="valid-feedback">
-            
-        </div>
-    </div>
-    <div class="col-md-4">
-        <label for="validationCustom02" class="form-label">From Airport</label>
-        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="flight.flightSource"  class="form-control" id="validationCustom02" placeholder="Mumbai, Delhi" required>
-        <div class="valid-feedback">
-            
-        </div>
-    </div>
-  
-    <div class="col-md-6">
-        <label for="validationCustom03" class="form-label">Destination Airport</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.flightDestination"  placeholder="Mumbai, Delhi" type="text" class="form-control" id="validationCustom03" required>
-        <div class="invalid-feedback">
-            
-        </div>
-    </div>
-  
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Departure Time</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.startDateTime" placeholder="e.g. : 2022-11-20T01:25:43.511Z"  type="text" class="form-control" id="validationCustom04" required>
-        <div class="invalid-feedback">
-            
-        </div>
-    </div>
+    <h4 class="display-1">
+        REGISTER A NEW FLIGHT
+    </h4>
+    <br />
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Flight Number</label>
+            <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="flight.flightNumber"
+                class="form-control" id="validationCustom00" placeholder="Flight Number" required>
+            <div class="valid-feedback">
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Arrival Time</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.endDateTime" placeholder="e.g. : 2022-11-20T01:25:43.511Z" type="text" class="form-control" id="validationCustom05" required>
-        <div class="invalid-feedback">
-            
+            </div>
         </div>
-    </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Airline</label>
+            <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="flight.airline" class="form-control"
+                id="validationCustom01" placeholder="Airline Name" required>
+            <div class="valid-feedback">
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Scheduled Days</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.scheduledDays" placeholder="Daily, Weekly etc." type="text" class="form-control" id="validationCustom06" required>
-        <div class="invalid-feedback">
-            
+            </div>
         </div>
-    </div>
+        <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">From Airport</label>
+            <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="flight.flightSource"
+                class="form-control" id="validationCustom02" placeholder="Mumbai, Delhi" required>
+            <div class="valid-feedback">
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Instruments</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.instruments" placeholder="International, Domestic, Air-Texi, Air-Bus" type="text" class="form-control" id="validationCustom07" required>
-        <div class="invalid-feedback">
-            
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Business Class Seat</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.businessClassSeat" placeholder="0"  type="number" class="form-control" id="validationCustom08" required>
-        <div class="invalid-feedback">
-            
-        </div>
-    </div>
+        <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">Destination Airport</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.flightDestination"
+                placeholder="Mumbai, Delhi" type="text" class="form-control" id="validationCustom03" required>
+            <div class="invalid-feedback">
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Non Business Class Seat</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.nonBusinessClassSeat" placeholder="0" type="number" class="form-control" id="validationCustom09" required>
-        <div class="invalid-feedback">
-            
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Ticket Fare</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.ticketFare" placeholder="0" type="number" class="form-control" id="validationCustom10" required>
-        <div class="invalid-feedback">
-        </div>
-    </div>
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Departure Time</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.startDateTime"
+                placeholder="e.g. : 2022-11-20T01:25:43.511Z" type="text" class="form-control" id="validationCustom04"
+                required>
+            <div class="invalid-feedback">
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Flight Rows</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.flightRows" placeholder="0" type="number" class="form-control" id="validationCustom11" required>
-        <div class="invalid-feedback">
+            </div>
         </div>
-    </div>
 
-    <div class="col-md-3">
-        <label for="validationCustom05" class="form-label">Meal Type</label>
-        <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.mealType" placeholder="Veg, Non-Veg, None" type="text" class="form-control" id="validationCustom12" required>
-        <div class="invalid-feedback">
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Arrival Time</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.endDateTime"
+                placeholder="e.g. : 2022-11-20T01:25:43.511Z" type="text" class="form-control" id="validationCustom05"
+                required>
+            <div class="invalid-feedback">
+
+            </div>
         </div>
-    </div>
-    
-    
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Scheduled Days</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.scheduledDays"
+                placeholder="Daily, Weekly etc." type="text" class="form-control" id="validationCustom06" required>
+            <div class="invalid-feedback">
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Instruments</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.instruments"
+                placeholder="International, Domestic, Air-Texi, Air-Bus" type="text" class="form-control"
+                id="validationCustom07" required>
+            <div class="invalid-feedback">
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Business Class Seat</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.businessClassSeat" placeholder="0"
+                type="number" class="form-control" id="validationCustom08" required>
+            <div class="invalid-feedback">
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Non-Business Class Seat</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.nonBusinessClassSeat" placeholder="0"
+                type="number" class="form-control" id="validationCustom09" required>
+            <div class="invalid-feedback">
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Ticket Fare</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.ticketFare" placeholder="0" type="number"
+                class="form-control" id="validationCustom10" required>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Flight Rows</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.flightRows" placeholder="0" type="number"
+                class="form-control" id="validationCustom11" required>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Meal Type</label>
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="flight.mealType" placeholder="Veg, Non-Veg, None"
+                type="text" class="form-control" id="validationCustom12" required>
+            <div class="invalid-feedback">
+            </div>
+        </div>
+
+
         <div style="text-align: center;" class="col-12">
             <button (click)="save()" class="btn btn-primary" type="submit">Submit form</button>
         </div>
-    
-  
-  
-  </form>
+
+
+
+    </form>
 
 </div>

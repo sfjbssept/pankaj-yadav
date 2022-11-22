@@ -71,6 +71,7 @@ export class FlightbookingComponent implements OnInit {
       (response: any) => {
         this.responseMessage = response.responseMessage;
          console.log(response);
+         alert(response.responseMessage)
       },
       function (error) {
          console.log(error);

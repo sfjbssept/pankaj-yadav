@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-
+<div class="div_bgImg">
+    <h1>Welcome {{user}} </h1>
+    <h2>Search Your Flight by Flight-Number or by Destinations</h2>
 <!-- <form class="form-inline" id="searchForm">
     <div class="form-group">
         <input class="form-control mr-sm-2" type="search" placeholder="Enter 
@@ -14,9 +16,20 @@
 
         <div class="col-md-8">
             <form [formGroup]="searchForm">
+                <!-- <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="city" formControlName="searchType">
+                    <label class="form-check-label" for="inlineRadio1">Search BY Cities</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="flightNumber" formControlName="searchType">
+                    <label class="form-check-label" for="inlineRadio2">Search BY Flight Number</label>
+                  </div> -->
+
                 <div>
-                    <input type="radio" value="city" formControlName="searchType">Search BY Cities
-                    <input type="radio" value="flightNumber" formControlName="searchType">Search BY Flight Number
+                    <input type="radio" class="clg-radio" value="city" formControlName="searchType">
+                    <label class="form-check-label">Search BY Cities</label>
+                    <input type="radio" class="clg-radio" value="flightNumber" formControlName="searchType">
+                    <label class="form-check-label">Search BY Flight Number</label>
                 </div>
                 <div class="search" *ngIf="searchForm.get('searchType')?.value == 'flightNumber'">
                     <i class="fa fa-search"></i>
@@ -49,4 +62,6 @@
         <b>Meal Type</b>               : {{flightResult.mealType}}<br>
         </div></div>
     </div>
+</div>
+
 </div>

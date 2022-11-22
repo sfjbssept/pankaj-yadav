@@ -32,7 +32,7 @@ export class BookingMgtComponent implements OnInit {
   // }
 
   searchPNRdetail() {
-    alert(this.bookingForm.get('searchText')?.value);
+    // alert(this.bookingForm.get('searchText')?.value);
     const observable = this.flightService.searchTktByPNR(this.bookingForm.get('searchText')?.value).subscribe((data)=>{
       console.log(data)
       this.tktResults = data;

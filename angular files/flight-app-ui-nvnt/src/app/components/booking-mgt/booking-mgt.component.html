@@ -1,33 +1,40 @@
 <app-navbar></app-navbar>
-<h1>WELCOME {{user}}</h1>
+<div class="div_bgImg">
+  <h1>WELCOME {{user}}</h1>
 
-<h2 class="display-1">Enter Your PNR Number</h2>
-<br />
-<div>
-  <marquee direction="right" 
-  behavior="alternate" 
-  style="border:#EEEEEE 5px SOLID; color: #17A2B8;">
-  <b>Press Cancel Button To Cancel Your Booking</b>
-</marquee>
-</div>
+  <h2>Enter Your PNR Number</h2>
+  <br />
+  <div>
+    <marquee direction="right" behavior="alternate" style="border:#EEEEEE 5px SOLID; color: rgb(84, 84, 138);;">
+      <b>Press Cancel Button To Cancel Your Booking</b>
+    </marquee>
+  </div>
 
   <!-- <p style="text-align: center;"><b></b> -->
 
-<div class="search">
-  <form [formGroup]="bookingForm">
-  <input type="text" class="form-control" placeholder="Enter PNR Number To Get Ticket Details" formControlName="searchText">
-  <button (click)="searchPNRdetail()" class="btn btn-primary" >Search</button>
-</form>
-</div>
+  <div class="search">
+    <form [formGroup]="bookingForm">
+      <input type="text" class="form-control" placeholder="Enter PNR Number To Get Ticket Details"
+        formControlName="searchText">
+      <button (click)="searchPNRdetail()" class="btn btn-primary">Search</button>
+    </form>
+  </div>
 
-<div *ngIf="tktResults?.length > 0">
-  <div *ngFor="let tktResult of tktResults; let i = index;">
-    <div (click)="deleteBooking(tktResult.pnrnumber, i)">Delete</div>
-  <div class="fw-bold">PNR Number : {{tktResult.pnrnumber}}</div><br>
-Below is the details of PNR {{tktResult.pnrnumber}} :<br>
-<b>Air Line</b>                 : {{tktResult.seatNumber}}<br>
-<b>Flight Source</b>           : {{tktResult.ticketStatus}}<br>
-<b>Flight Destination</b>      : {{tktResult.ticketCode}}<br>
-<b>Start Date Time</b>         : {{tktResult.startDateTime}}<br>
-<b>End Date Time</b>           : {{tktResult.endDateTime}}<br>
-</div></div>
+  <div *ngIf="tktResults?.length > 0">
+    <div *ngFor="let tktResult of tktResults; let i = index;">
+
+
+      <!-- <div (click)="deleteBooking(tktResult.pnrnumber, i)">Cancel</div> -->
+      <div class="fw-bold">PNR Number : {{tktResult.pnrnumber}}</div><br>
+      Below is the details of PNR {{tktResult.pnrnumber}} :<br>
+      <b>Air Line</b> : {{tktResult.seatNumber}}<br>
+      <b>Flight Source</b> : <b style="color: red;">{{tktResult.ticketStatus}}</b><br>
+      <b>Flight Destination</b> : {{tktResult.ticketCode}}<br>
+      <b>Start Date Time</b> : {{tktResult.startDateTime}}<br>
+      <b>End Date Time</b> : {{tktResult.endDateTime}}<br>
+      <button type="submit" (click)="deleteBooking(tktResult.pnrnumber, i)" style="background-color: #f73210;">Cancel
+        Booking</button>
+    </div>
+  </div>
+
+</div>
