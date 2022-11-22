@@ -51,7 +51,7 @@ export class FlightbookingComponent implements OnInit {
   selectedFlight: String = "";
   flights : String[] = []; 
   user: any = sessionStorage.getItem("USER");
-  name : String = "Sanjay";
+  name : String = "Pankaj";
   pnr: number = 0;
 
 
@@ -82,7 +82,7 @@ export class FlightbookingComponent implements OnInit {
 
   parseSelectedFlight() {
     const array = this.booking.flight.split(":");
-    this.bookingDetail.user = "Sanjay";
+    this.bookingDetail.user = "Pankaj";
     this.bookingDetail.airline = array[0];
     this.bookingDetail.source = array[1];
     this.bookingDetail.destination = array[2];
