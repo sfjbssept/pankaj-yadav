@@ -1,0 +1,23 @@
+>ansible --version                                (to check if ansible is pre-installed)
+>sudo apt-get update                              (to update the repository of ubuntu system)
+>sudo apt-add-repository -y ppa:ansible/ansible   (to create personal package archive)
+>sudo apt-get update                              (to update the repository of ubuntu system)
+>sudo apt-get install -y ansible                  (to download and install ansible)
+>sudo apt install python3-pip -y                  (to install python package manager)
+
+cd documents
+
+ls
+
+sudo vi nginx-install.yml
+
+mkdir <folder name>
+
+
+--------------------------------------------------------------------------------------------------
+Terra-Form - 
+
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+>sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+
+>wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   validUsers : String[] = [];
 
   login() {
-    if (this.username == "admin123") {
+    if (this.username == "admin") {
       sessionStorage.setItem("USER", "admin");
       this.router.navigate(['airline'])
     } else {

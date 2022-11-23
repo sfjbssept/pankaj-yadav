@@ -1,0 +1,25 @@
+User name
+u2
+Password
+lI_ur5=S7Aq%Mfq
+Access key ID
+AKIA4MFLODBGM7FC7R2S
+Secret access key
+Ku7I4/s8Zj+wSQo6dTI2i5cz/tmvtYi3tB+YrdF6
+Console login link
+https://850763061324.signin.aws.amazon.com/console
+--------------------------------------------------------------------
+Account ID (12 digits) or account alias
+850763061324
+-------------------------------------------------------------------
+
+Docker image build command:-
+mvn spring-boot:build-image -Dmaven.test.skip=true
+docker run --tty --publish 8081:8081 spring-aws-demo:0.0.1-SNAPSHOT
+
+
+C:\Users\sfjbs>docker tag spring-aws-demo:0.0.1-SNAPSHOT pankajdockeraccount/spring-aws-demo:0.0.1-SNAPSHOT
+C:\Users\sfjbs>docker image ls
+
+docker push pankajdockeraccount/spring-aws-demo:0.0.1-SNAPSHOT
+

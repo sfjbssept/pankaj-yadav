@@ -1,0 +1,54 @@
+ https://minikube.sigs.k8s.io/docs/start/
+
+>New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
+Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
+
+>$oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
+if ($oldPath.Split(';') -inotcontains 'C:\minikube'){ `
+  [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine) `
+}
+-------------------------------------------------------------------------
+>minikube version
+>minikube start --driver=docker
+>minikube status
+>minikube docker-env
+>& minikube -p minikube docker-env --shell powershell | Invoke-Expression
+>minikube delete
+-------------------------------------------------------------------------
+>kubectl cluster-info
+>kubectl get node
+>kubectl get deployment
+>kubectl get pods
+-------------------------------------------------------------------------
+
+C:\Users\sfjbs\Documents\java batch\main-training\springboot-k8-demo>docker build -t pankajy/springboot-k8s-demo:1.0 .
+C:\Users\sfjbs\Documents\java batch\main-training\springboot-k8-demo>docker images
+C:\Users\sfjbs\Documents\java batch\main-training\springboot-k8-demo>kubectl create deployment springboot-k8s --image=springboot-k8s-demo:1.0 --port=8080
+deployment.apps/springboot-k8s created
+
+--------------------------------------------------------------------------
+>'C:\Program Files\Docker\Docker\DockerCli.exe' -SwitchDaemon
+--------------------------------------------------------------------------
+
+
+
+
+
+FROM NISHANT:
+1. minikube version
+2. minikube start --driver=docker (make sure that docker and kuber nates is up and running before running this command)
+3. minikube status
+4. to check the cluster info 
+    kubectl cluster-info
+5. to check if we have the minikube node ready 
+    kubectl get node
+6. minikube docker-env
+7. docker images
+8. springboot-k8-demo>docker build -t springboot-k8s-demo:1.0 .
+10. kubectl get deployment ( to see all the deployments )
+11. kubectl describe deployment springboot-k8s to check the details of the deployment 
+12. kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1/ --docker-username=pankajy --docker-password=pankajy --docker-email=pankaj.tec.ac@gmail.com
+13. kubectl create deployment springboot-k8s5 --image=krnish99/springboot-k8s-demo:1.0 --port=8080
+14. kubectl describe deployment springboot-k8s5
+15. kubectl logs springboot-k8s5-765b59576c-5gfqr
+16. kubectl get deployments

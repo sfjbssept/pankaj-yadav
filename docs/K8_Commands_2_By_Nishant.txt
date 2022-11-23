@@ -1,0 +1,33 @@
+ i. POD -> In kubernetes we don't interact with the containers directly, we interct with the pods and the pods can wrap a single container in it or multiple 
+    ii. NODE -> wraps all pods, all pods can we wrapped inside a node.
+    iii. Cluster ->  a cluster is a group of all nodes 
+    iv. Replication controller / replication sets -> will allow us to create replicas of pre existing pods to make sure there is no application downtime if the main pod stops working for some reason.  
+    v. Service -> it provides us with a fixed dns name for communication between pods
+    vi. Deployment -> Deployment are kubernetes objects that helps us to manage pods 
+    Kubectl create deployment first-deployment -image= <image name> --port=8080 --replicas = 10
+    vii. Secrets
+    viii. Config map
+    ix. ETCD -> key-value base database which stores config , it can store secret and config map inside etcd database.
+Install -> kubectl
+intall minikube
+install docker desktop
+add paths for all three
+check installat
+
+from Nishant to everyone:    10:43 AM
+    i. POD -> In kubernetes we don't interact with the containers directly, we interct with the pods and the pods can wrap a single container in it or multiple 
+    ii. NODE -> wraps all pods, all pods can we wrapped inside a node.
+    iii. Cluster ->  a cluster is a group of all nodes 
+    iv. Replication controller / replication sets -> will allow us to create replicas of pre existing pods to make sure there is no application downtime if the main pod stops working for some reason.  
+    v. Service -> it provides us with a fixed dns name for communication between pods
+    vi. Deployment -> Deployment are kubernetes objects that helps us to manage pods 
+    Kubectl create deployment first-deployment -image= <image name> --port=8080 --replicas = 10
+    vii. Secrets
+    viii. Config map
+    ix. ETCD -> key-value base database which stores config , it can store secret and config map inside etcd database.
+Install -> kubectl
+intall minikube
+install docker desktop
+add paths for all three
+check installat
+--------------------------------------------------------------------------------------------------------------------------------------------------------------

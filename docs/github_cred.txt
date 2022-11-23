@@ -1,0 +1,122 @@
+pass LearnMicroservice@1233%
+user sfjbssept
+email sfjbssept@gmail.com
+personal access token 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
+device code : 488E-A30A
+--------------------------------------------------------------------
+repo link : https://github.com/sfjbssept/pankaj-yadav
+https://github.com/sfjbssept/Nishant
+----------------------------------------------------
+
+git config --global user.email "sfjbssept@gmal.com"
+git config --global user.name "sfjbssept"
+
+-------------------------------------------------
+git init
+git add *
+git commit -m "first commit"
+git branch -M main
+git remote add origin your url
+--> https://github.com/sfjbssept/pankaj-yadav
+git push -u origin main
+
+
+
+
+---------------------------------
+git init
+git add *
+git config --global user.email "sfjbssept@gmail.com"
+git config --global user.name "sfjbssept"
+git commit -m "my first commit"
+git branch -M main
+git remote add origin  https://github.com/sfjbssept/pankaj-yadav
+git push -u origin main
+
+-------------------------------------
+{
+    "productName":"Iphone 14",
+    "productBrand":"Apple",
+    "productCategory":"smartphones",
+    "productPrice": 150000
+}
+http://localhost:8082/addproduct
+---------------------------------
+https://github.com/sfjbssept/Nishant
+-----------------------------------------
+
+
+
+[
+    { 
+    "firstName" : "Jemmy",
+    "lastName" : "ory",
+    "gender" : "female",
+    "age" : 24,
+    "mealOpted" : "Veg",
+    "seatNumber" : "VIBC11"
+    },
+    { 
+    "firstName" : "John",
+    "lastName" : "Smith",
+    "gender" : "Male",
+    "age" : 26,
+    "mealOpted" : "nonVeg",
+    "seatNumber" : "VIBC12"
+    }
+]
+---------------------------------------------------------------
+KAFKA SERVER START COMMANDS
+zookeeper-server-start.bat D:\softwares\kafka_2.13-3.1.0\config\zookeeper.properties
+kafka-server-start.bat D:\softwares\kafka_2.13-3.1.0\config\server.properties
+kafka-topics.bat --create --topic spring-kafka --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic spring-kafka
+-----------------------
+zookeeper-server-start.bat D:\kafka_2.13-3.1.0\config\zookeeper.properties
+kafka-server-start.bat D:\kafka_2.13-3.1.0\config\server.properties
+kafka-topics.bat --create --topic spring-kafka1 --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic spring-kafka1
+--------------------------------------------------------------
+
+To clear temporary files:
+Press the Win + R to open Run.
+Type %temp% and click OK.
+In the temporary folder, press Ctrl + A to select all the files and hit the Delete key. Click Skip for any file that appears to be in use.
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+mmodify topic name
+same topic name modify in application
+run application
+run create topic command
+run consume topic command
+send request from postman
+
+-------------------------------
+RABBIT MQ
+run command in rabbitMq command prompt: rabbitmq-plugins enable rabbitmq_management
+http://localhost:15672/#/
+User name: guest
+Password: guest
+-------------------------------
+ActiveMQ
+
+
+Stop the server and then Start server again. Then run the command and check in browser 
+--------------------------------
+
+
+https://github.com/sfjbssept/deployment-jenkins-demo
+from Nishant trainer to everyone:    10:00 AM
+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
+-------------------------------------------------------------------------
+
+from Nishant to everyone:    9:58 AM
+for nod ejs batch 
+from Nishant to everyone:    6:08 PM
+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
+from Nishant to everyone:    6:14 PM
+Set your username: git config --global user.name "FIRST_NAME LAST_NAME"
+Set your email address: git config --global user.email "MY_NAME@example.com"
+
+----------------------------------------------------------------------------------

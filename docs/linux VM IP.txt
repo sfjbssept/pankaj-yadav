@@ -1,0 +1,5 @@
+LINUX vm ip
+20.197.6.56
+-----------------------
+terraform init
+terraform plan

@@ -1,0 +1,148 @@
+Microsoft Windows [Version 10.0.19044.1889]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\sfjbs>mongo
+MongoDB shell version v5.0.11
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("543a21f1-aefd-49e8-b926-aeaa9ea63423") }
+MongoDB server version: 5.0.11
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-09-06T06:02:48.624+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> let a= 45
+> a
+45
+> let b= 56
+> b
+56
+> a+b
+101
+> use employee
+switched to db employee
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+>
+>
+> db
+employee
+>
+> db.collectionname('emp')
+uncaught exception: TypeError: db.collectionname is not a function :
+@(shell):1:1
+> db.createCollection('emp')
+{ "ok" : 1 }
+>
+>
+> show dbs
+admin     0.000GB
+config    0.000GB
+employee  0.000GB
+local     0.000GB
+>
+> show collections
+emp
+>
+> use admin
+switched to db admin
+> db
+admin
+> show collections
+system.version
+> use emp
+switched to db emp
+> db
+emp
+> show dbs
+admin     0.000GB
+config    0.000GB
+employee  0.000GB
+local     0.000GB
+>
+> db
+emp
+>
+> use employee
+switched to db employee
+> db
+employee
+>
+>
+> show collections
+emp
+>
+>
+> db.users.insert({name:"pankaj",age:28})
+WriteResult({ "nInserted" : 1 })
+> show collections
+emp
+users
+>
+>
+> show db
+uncaught exception: Error: don't know how to show [db] :
+shellHelper.show@src/mongo/shell/utils.js:1211:11
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> shows dbs
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:6
+>
+> show dbs
+admin     0.000GB
+config    0.000GB
+employee  0.000GB
+local     0.000GB
+>
+> db
+employee
+> use db emp
+Error: [db emp] is not a valid database name :
+Mongo.prototype.getDB@src/mongo/shell/mongo.js:61:12
+getDatabase@src/mongo/shell/session.js:922:28
+DB.prototype.getSiblingDB@src/mongo/shell/db.js:30:12
+shellHelper.use@src/mongo/shell/utils.js:851:10
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+> use emp
+switched to db emp
+> db
+emp
+> db.dropDatabase
+function(writeConcern) {
+    return this._dbCommand(
+        {dropDatabase: 1, writeConcern: writeConcern ? writeConcern : _defaultWriteConcern});
+}
+> db.dropDatabase()
+{ "ok" : 1 }
+>
+>
+> show dbs
+admin     0.000GB
+config    0.000GB
+employee  0.000GB
+local     0.000GB

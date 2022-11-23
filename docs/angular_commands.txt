@@ -1,0 +1,47 @@
+$ node -v
+v16.17.0
+
+sfjbs@vm001 MINGW64 ~/Documents/java batch/main-training/angular files (new_main)
+$ npm -v
+8.15.0
+
+sfjbs@vm001 MINGW64 ~/Documents/java batch/main-training/angular files (new_main)
+$ npm i -g @angular/cli
+
+
+npm i bootstrap(to install bootstrap)
+npm i jsonserver(to install the json server which will save the data)
+json-server --watch db.json --port 5000
+npx json-server --watch db.json --port 5000
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+in cmd
+1)ng new starter-app (run this command in any workspace floder it will generate the app within starter-app floder, run below command inside it)
+2)code . <- this will open application in VS code
+3)ng serve
+4)ng g c components/userform(to create a new component inside components folder where g stands for create)
+5)ng g service Services/students
+6)ng generate module app-routing --flat --module=app
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+for production build commands are
+ng build
+or 
+ng build --configuration production
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+docker build -t angular-docker-image-startupapp .
+doker run <name of the imager>
+docker images (thus list all the images)
+docker run -p 80:80 angular-docker-image-startupapp
+docker build -t imagename .
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ FROM node:16
+ # Create app directory
+WORKDIR /usr/src/app/
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+
+# stage 2
+FROM nginx:alpine
+COPY --from=node dist/docker-app /usr/share/nginx/html
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,0 +1,1 @@
+mvn clean verify sonar:sonar -Dsonar.projectKey=sample-maven -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_927ac0e8eaeac072062dae7e5d17a86e5cab9dea
